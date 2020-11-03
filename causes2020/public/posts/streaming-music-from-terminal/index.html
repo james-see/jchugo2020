@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="James Campbell website pushing buttons since 1981.">
+<title>
+    Streaming Music from the Terminal - Causes &amp; Effects
+</title>
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.6d10ea1ed2e66d431267324e2126b185c40ae2a7adb70d109ce81ce22729f1c3.css" integrity="sha256-bRDqHtLmbUMSZzJOISaxhcQK4qettw0QnOgc4icp8cM=" crossorigin="anonymous" media="screen">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.jamescampbell.us/tn.png"/>
+
+<meta name="twitter:title" content="Streaming Music from the Terminal"/>
+<meta name="twitter:description" content="Do you remember Rdio? It was a better than Spotify at streaming music back in 2012.
+In 2013, Entertainment Weekly compared a number of music services and judged Rdio the best, grading it &ldquo;A&rdquo; and writing that it had &ldquo;by far the best app and online interface, making database searching and playlist curation easy&rdquo; - source
+Rdio ended up not finding the right business model, or spending too much of its 200 million, or who knows what, but it filed for bankruptcy in 2015 and Pandora purchased it and all of its assets for 75 million cash."/>
+
+<meta property="og:title" content="Streaming Music from the Terminal" />
+<meta property="og:description" content="Do you remember Rdio? It was a better than Spotify at streaming music back in 2012.
+In 2013, Entertainment Weekly compared a number of music services and judged Rdio the best, grading it &ldquo;A&rdquo; and writing that it had &ldquo;by far the best app and online interface, making database searching and playlist curation easy&rdquo; - source
+Rdio ended up not finding the right business model, or spending too much of its 200 million, or who knows what, but it filed for bankruptcy in 2015 and Pandora purchased it and all of its assets for 75 million cash." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.jamescampbell.us/posts/streaming-music-from-terminal/" />
+<meta property="og:image" content="https://www.jamescampbell.us/tn.png"/>
+<meta property="article:published_time" content="2019-02-23T21:19:10-05:00" />
+<meta property="article:modified_time" content="2019-02-23T21:19:10-05:00" /><meta property="og:site_name" content="Causes &amp; Effects" />
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Streaming Music from the Terminal
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Streaming Music from the Terminal</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Sat Feb 23, 2019 &#183; 465 words
+        <div class="tag-container">
+            
+            
+            <span class="tag">
+                <a href="/tags/cli/">
+                    cli
+                </a>
+            </span>
+            
+            
+            
+            <span class="tag">
+                <a href="/tags/tips/">
+                    tips
+                </a>
+            </span>
+            
+            
+        </div>
+    </aside>
+    <hr />
+    <article role="article">
+        <p>Do you remember Rdio? It was a better than Spotify at streaming music back in 2012.</p>
+<p>In 2013, Entertainment Weekly compared a number of music services and judged Rdio the best, grading it &ldquo;A&rdquo; and writing that it had &ldquo;by far the best app and online interface, making database searching and playlist curation easy&rdquo; - <a href="http://www.ew.com/ew/article/0,,20663844,00.html" title="The best, but filed for bankruptcy.">source</a></p>
+<p>Rdio ended up not finding the right business model, or spending too much of its 200 million, or who knows what, but it filed for bankruptcy in 2015 and Pandora purchased it and all of its assets for 75 million cash.</p>
+<p>Fast forward to today, and I still use Pandora (I also am on <a href="https://open.spotify.com/user/jamesanthonycampbell" title="Yep, I am a hipster.">Spotify</a>).</p>
+<p>What doesn&rsquo;t make sense to me about Pandora is that there is no desktop client. I guess they focus on mobile and web? Or is there a workaround?</p>
+<p>Enter <a href="https://6xq.net/pianobar/" title="I was hesitant to link to it, I don't want it to get too popular.">Pianobar</a>. A thoughtful command line client for Pandora. Here is what mine looks like when I initialize it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pianobar
+Welcome to pianobar <span style="color:#f92672">(</span>2018.06.22<span style="color:#f92672">)</span>! Press ? <span style="color:#66d9ef">for</span> a list of commands.
+<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> Login... Ok.
+<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> Get stations... Ok.
+|&gt;  Station <span style="color:#e6db74">&#34;Sunset Rubdown Radio&#34;</span> <span style="color:#f92672">(</span>54342580605901210<span style="color:#f92672">)</span>
+<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> Receiving new playlist... Ok.
+|&gt;  <span style="color:#e6db74">&#34;You Go On Ahead (Trumpet Trumpet II)&#34;</span> by <span style="color:#e6db74">&#34;Sunset Rubdown&#34;</span> on <span style="color:#e6db74">&#34;Dragonslayer&#34;</span> &lt;<span style="color:#ae81ff">3</span>
+<span style="color:#75715e">#   -05:41/05:45</span>
+</code></pre></div><p>It auto loads the previous station you were listening to, in my case it was <a href="https://en.wikipedia.org/wiki/Sunset_Rubdown" title="Was a great Canadian indie rock band that included piano hero Spencer Krug.">Sunset Rubdown</a> Radio.</p>
+<p>It turns out if you are on a Mac, and have <a href="https:/brew.sh" title="homebrew is a great package manager, and works on windows and linux now too.">homebrew</a> installed, you can do <code>brew install pianobar</code> and you can access and stream music from the terminal, complete with keyboard shortcuts to change stations and thumb-up (<code>shift + =</code>) or thumb-down (<code>-</code>) tracks. The <code>?</code> gets you the list of all of the commands. For completeness here ya go:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">	+    love song
+	-    ban song
+	a    add music to station
+	c    create new station
+	d    delete station
+	e    explain why this song is played
+	g    add genre station
+	h    song history
+	i    print information about song/station
+	j    add shared station
+	n    next song
+	p    pause/resume playback
+	q    quit
+	r    rename station
+	s    change station
+	t    tired <span style="color:#f92672">(</span>ban song <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">1</span> month<span style="color:#f92672">)</span>
+	u    upcoming songs
+	x    <span style="color:#66d9ef">select</span> quickmix stations
+	b    bookmark song/artist
+	<span style="color:#f92672">(</span>    decrease volume
+	<span style="color:#f92672">)</span>    increase volume
+	<span style="color:#f92672">=</span>    delete seeds/feedback
+	v    create new station from song or artist
+	P    resume playback
+	S    pause playback
+	^    reset volume
+	!    change settings
+</code></pre></div><p>As a step further, you can create a config file at <code>~/.config/pianobar/config</code> by <code>mkdir -p ~/.config/pianobar</code> and <code>nano ~/.config/pianobar/config</code> that will auto-log you into your Pandora account and even auto start a particular station of interest if you wish.</p>
+<p>Example config from <code>man pianobar</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">audio_quality <span style="color:#f92672">=</span> high
+autostart_station <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+
+password <span style="color:#f92672">=</span> plaintext_password
+user <span style="color:#f92672">=</span> your@user.name
+</code></pre></div><p>It is one of the headless apps I use every day, so I thought I would share it.</p>
+<p>What apps are indispensable for you?</p>
+
+    </article>
+</div>
+
+
+        
+<nav role="navigation" class="flex-container bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/posts">posts</a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/gallery">gallery</a>
+        
+            &#183; 
+            <a href="/portfolio">portfolio</a>
+        
+            &#183; 
+            <a href="/about">who is james?</a>
+        
+    
+    &#183; 
+    <a href="/">
+        main
+    </a>
+
+</p>
+</nav>
+
+    </main>
+    
+    <footer class="flex-container footer">All rights reserved © 2013-2020
+</footer>
+    
+    
+</body>
+
+</html>

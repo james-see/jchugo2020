@@ -6,4 +6,7 @@ maxWidth: "600x"
 clickablePhotos: true
 ---
 
-This is another gallery of images similar to [the first one](/gallery). It can be called anything you want!
+In order of display:
+
+1. Markov Chains twitter bot
+2. (coming soon)

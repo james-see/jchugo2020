@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Causes &amp; Effects</title>
+    <link>https://www.jamescampbell.us/</link>
+    <description>Recent content on Causes &amp; Effects</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Feb 2019 21:19:10 -0500</lastBuildDate><atom:link href="https://www.jamescampbell.us/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streaming Music from the Terminal</title>
+      <link>https://www.jamescampbell.us/posts/streaming-music-from-terminal/</link>
+      <pubDate>Sat, 23 Feb 2019 21:19:10 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/streaming-music-from-terminal/</guid>
+      <description>Do you remember Rdio? It was a better than Spotify at streaming music back in 2012.
+In 2013, Entertainment Weekly compared a number of music services and judged Rdio the best, grading it &amp;ldquo;A&amp;rdquo; and writing that it had &amp;ldquo;by far the best app and online interface, making database searching and playlist curation easy&amp;rdquo; - source
+Rdio ended up not finding the right business model, or spending too much of its 200 million, or who knows what, but it filed for bankruptcy in 2015 and Pandora purchased it and all of its assets for 75 million cash.</description>
+    </item>
+    
+    <item>
+      <title>Video post</title>
+      <link>https://www.jamescampbell.us/posts/video-post/</link>
+      <pubDate>Fri, 16 Mar 2018 20:18:53 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/video-post/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus eget nunc scelerisque viverra. Quam vulputate dignissim suspendisse in est ante in nibh mauris. Pharetra magna ac placerat vestibulum lectus mauris. Eget lorem dolor sed viverra ipsum. Elementum nisi quis eleifend quam adipiscing. Aliquet nec ullamcorper sit amet risus. Auctor neque vitae tempus quam pellentesque. Tincidunt lobortis feugiat vivamus at augue.</description>
+    </item>
+    
+    <item>
+      <title>**Image** post</title>
+      <link>https://www.jamescampbell.us/posts/image-post/</link>
+      <pubDate>Mon, 19 Feb 2018 12:41:46 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/image-post/</guid>
+      <description>Hello! I&amp;rsquo;m a blog post with an image. Thanks to Open Graph and Twitter metadata, external links to this page will feature the image below.
+To make this happen, set the images parameter in your post&amp;rsquo;s front-matter, like this YAML example:
+images: - /posts/ideas.png </description>
+    </item>
+    
+    <item>
+      <title>`Code` Poetry</title>
+      <link>https://www.jamescampbell.us/posts/code-poetry/</link>
+      <pubDate>Tue, 13 Feb 2018 13:56:12 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/code-poetry/</guid>
+      <description>Pseudo code poem.
+if (this === that): try write_new_poem() except not_a_poet as e: return e e cummings?
+console.log(&amp;#39;eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&amp;#39;) An embedded gist using shortcode:
+ </description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://www.jamescampbell.us/about/</link>
+      <pubDate>Tue, 13 Feb 2018 13:42:49 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/about/</guid>
+      <description>I am a husband, father, and technologist living near Washington DC.
+I enjoy working on projects that venn art &amp;amp; code as well as making and listening to music.
+hackercode:
+v5sw7hw4pr6MSCLXck4edu9Aln5ma4os6UMedVcr7bo7ga3BCa35geMs7Sp/3+/4h7et5
+https://web.archive.org/web/20150706091246/http://shine.eu.org/hackerkey.html
+-----BEGIN GEEK CODE BLOCK----- Version: 3.12 GS d+ s+: !a C++ UL+++ P+ L++ E W+++ N++ o-- K- w-- O- M++ V+ PS PE Y PGP++ t 5 X++ R tv b++ DI- D+ G-- e+ h---- r+++ y++++ ------END GEEK CODE BLOCK------ ---------------------- OmniCode 0.</description>
+    </item>
+    
+    <item>
+      <title>Dear Jane, regarding Mr. Bennet</title>
+      <link>https://www.jamescampbell.us/posts/dear-jane/</link>
+      <pubDate>Sun, 11 Feb 2018 12:34:41 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/dear-jane/</guid>
+      <description>Chapter One It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.
+However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.</description>
+    </item>
+    
+    <item>
+      <title>2013, The Year We Missed</title>
+      <link>https://www.jamescampbell.us/posts/2013-year-we-missed/</link>
+      <pubDate>Tue, 31 Dec 2013 04:10:00 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/2013-year-we-missed/</guid>
+      <description>In 2013, we looked pretty ridiculous standing around staring at our phones, tablets, phablets, and iPads.
+My goal in this post is to share photos I have curated that document the phenomenon of humans interacting with new technology.
+Since I believe I am a better curator than writer, I will try to keep the words to a minimum.
+New technology is great, but we need to figure out what it means and how it fits into our lives.</description>
+    </item>
+    
+    <item>
+      <title>Why Flickr is My Online Backup Solution</title>
+      <link>https://www.jamescampbell.us/posts/why-flickr-backup-solution/</link>
+      <pubDate>Mon, 11 Nov 2013 10:10:10 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/why-flickr-backup-solution/</guid>
+      <description>I&amp;rsquo;ve complained about Flickr&amp;rsquo;s new redesign enough. There are some positives about the service that still out-do any other online photo sharing website.
+For example, I am one of the lucky ones who have been grandfathered into Flickr&amp;rsquo;s unlimited photo plan when my Pro plan was renewed earlier this year. This means that for $25 per year I get unlimited photo storage.
+This fact, coupled with the auto-upload feature in the Flickr app for the iPhone means I have everything I need to backup and store all of my photos taken on my iPhone.</description>
+    </item>
+    
+  </channel>
+</rss>

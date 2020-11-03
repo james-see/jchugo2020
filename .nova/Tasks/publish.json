@@ -2,7 +2,7 @@
   "actions" : {
     "run" : {
       "enabled" : true,
-      "script" : "cd ~\/projects\/jchugo2020\/causes2020\nrm -rf ~\/projects\/jamesacampbell.github.io\/docs\/\ncp -R public\/* ~\/projects\/jamesacampbell.github.io\/docs\/\ncp ~\/projects\/jamesacampbell.github.io\/trans\/* ~\/projects\/jamesacampbell.github.io\/docs\/\ngit yolo"
+      "script" : "# make sure we are in the right directory\ncd ~\/projects\/jchugo2020\/causes2020\n# remove the old published version\nrm -rf public\/\n# create the public folder again\nhugo\n# prep the docs folder which github server serves from as root\nrm -rf ~\/projects\/jamesacampbell.github.io\/docs\/\n# copy over the files\ncp -R public\/* ~\/projects\/jamesacampbell.github.io\/docs\/\ncp ~\/projects\/jamesacampbell.github.io\/trans\/* ~\/projects\/jamesacampbell.github.io\/docs\/\n# push the changes to github server\ncd ~\/projects\/jamesacampbell.github.io\/\ngit yolo"
     }
   },
   "identifier" : "DE072CEA-AECC-4EC9-AF26-D85A95CD0372"
