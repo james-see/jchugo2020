@@ -150,7 +150,7 @@ article {
   article .highlight {
     width: 100%; }
   article pre {
-    line-height: 2rem;
+    line-height: 1.2 rem;
     border-radius: 3px;
     padding: 1rem;
     overflow-x: auto;

@@ -1,9 +1,10 @@
 ---
 title: "Shop"
-type: "gallery"
 url: "/shop"
-maxWidth: "800x"
-clickablePhotos: true
 ---
 
-Coming Soon.
+---
+
+CleanPDF
+
+Free Mac OS app to check the balance of any bitcoin wallet [Buy Now](https://gum.co/rnGfX)

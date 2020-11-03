@@ -6,7 +6,20 @@
     <description>Recent content on Causes &amp; Effects</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Feb 2019 21:19:10 -0500</lastBuildDate><atom:link href="https://www.jamescampbell.us/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Oct 2020 10:10:10 -0500</lastBuildDate><atom:link href="https://www.jamescampbell.us/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stop Worrying and Git Yolo</title>
+      <link>https://www.jamescampbell.us/posts/yolo-git-2020/</link>
+      <pubDate>Sun, 11 Oct 2020 10:10:10 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/yolo-git-2020/</guid>
+      <description>Git yolo has changed my life for the better. It saves me tons of time. You never have to type in a commit comment again.
+Here is how to get the yolo alias working:
+You need to edit your gitconfig dotfile that is located at ~/.gitconfig.
+Mine before:
+$ cat ~/.gitconfig # This is Git&#39;s per-user configuration file. [user] # Please adapt and uncomment the following lines: name = jamesacampbell email = james@jamescampbell.</description>
+    </item>
+    
     <item>
       <title>Streaming Music from the Terminal</title>
       <link>https://www.jamescampbell.us/posts/streaming-music-from-terminal/</link>
@@ -35,7 +48,7 @@ That is a single example that explains the idea behind this article. What thing 
       
       <guid>https://www.jamescampbell.us/about/</guid>
       <description>I am a husband, father, and technologist living near Washington DC.
-I enjoy working on projects that venn art &amp;amp; code as well as making and listening to music.
+I enjoy working on projects that merge art &amp;amp; code as well as making and listening to music.
 Let&amp;rsquo;s create the world we want.</description>
     </item>
     

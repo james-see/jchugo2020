@@ -4,6 +4,8 @@ date: 2020-10-11T10:10:10-05:00
 showDate: true
 draft: false
 tags: ["git", "tips"]
+images:
+  - /img/git-yolo.png
 ---
 
 Git yolo has changed my life for the better. It saves me tons of time. You never have to type in a commit comment again.
@@ -39,3 +41,7 @@ $ cat ~/.gitconfig
 [alias]
 yolo = !git add -A && git commit -am \"`curl -s http://whatthecommit.com/index.txt `\" && git push -f origin master
 ```
+
+This has saved me _hours_ over the past year. It uses random text snippets from http://whatthecommit.com for your commit statements. So be prepared to have some silly commit statements.
+
+Enjoy!
