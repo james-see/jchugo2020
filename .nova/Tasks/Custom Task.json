@@ -1,0 +1,9 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "cd ~\/projects\/jchugo2020\/causes2020\nhugo serve"
+    }
+  },
+  "identifier" : "DE072CEA-AECC-4EC9-AF26-D85A95CD0372"
+}
