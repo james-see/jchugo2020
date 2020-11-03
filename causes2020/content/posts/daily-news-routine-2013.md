@@ -3,7 +3,6 @@ title: "My Daily News Routine in 2013"
 date: 2013-09-02T10:10:10-05:00
 showDate: true
 tags: ["blog", "story"]
-draft: true
 images:
   - /posts/ideas.png
 ---

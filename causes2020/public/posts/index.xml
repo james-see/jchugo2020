@@ -19,45 +19,23 @@ Rdio ended up not finding the right business model, or spending too much of its 
     </item>
     
     <item>
-      <title>Video post</title>
-      <link>https://www.jamescampbell.us/posts/video-post/</link>
-      <pubDate>Fri, 16 Mar 2018 20:18:53 -0500</pubDate>
+      <title>Forever Things</title>
+      <link>https://www.jamescampbell.us/posts/forever-things/</link>
+      <pubDate>Fri, 25 May 2018 23:19:10 -0500</pubDate>
       
-      <guid>https://www.jamescampbell.us/posts/video-post/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus eget nunc scelerisque viverra. Quam vulputate dignissim suspendisse in est ante in nibh mauris. Pharetra magna ac placerat vestibulum lectus mauris. Eget lorem dolor sed viverra ipsum. Elementum nisi quis eleifend quam adipiscing. Aliquet nec ullamcorper sit amet risus. Auctor neque vitae tempus quam pellentesque. Tincidunt lobortis feugiat vivamus at augue.</description>
+      <guid>https://www.jamescampbell.us/posts/forever-things/</guid>
+      <description>I love brass. Brass is a hard metal that will outlast me. It is strange to think about things that will exist after we are gone. I own a Kaweco pen that is brass. Assuming I buy ink refills, I never have to buy a pen again.
+That is a single example that explains the idea behind this article. What thing can you acquire once, and then never have to buy a newer version again?</description>
     </item>
     
     <item>
-      <title>**Image** post</title>
-      <link>https://www.jamescampbell.us/posts/image-post/</link>
-      <pubDate>Mon, 19 Feb 2018 12:41:46 -0500</pubDate>
+      <title>On Photography and Joy</title>
+      <link>https://www.jamescampbell.us/posts/on-photography-and-joy/</link>
+      <pubDate>Tue, 04 Feb 2014 10:10:10 -0500</pubDate>
       
-      <guid>https://www.jamescampbell.us/posts/image-post/</guid>
-      <description>Hello! I&amp;rsquo;m a blog post with an image. Thanks to Open Graph and Twitter metadata, external links to this page will feature the image below.
-To make this happen, set the images parameter in your post&amp;rsquo;s front-matter, like this YAML example:
-images: - /posts/ideas.png </description>
-    </item>
-    
-    <item>
-      <title>`Code` Poetry</title>
-      <link>https://www.jamescampbell.us/posts/code-poetry/</link>
-      <pubDate>Tue, 13 Feb 2018 13:56:12 -0500</pubDate>
-      
-      <guid>https://www.jamescampbell.us/posts/code-poetry/</guid>
-      <description>Pseudo code poem.
-if (this === that): try write_new_poem() except not_a_poet as e: return e e cummings?
-console.log(&amp;#39;eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&amp;#39;) An embedded gist using shortcode:
- </description>
-    </item>
-    
-    <item>
-      <title>Dear Jane, regarding Mr. Bennet</title>
-      <link>https://www.jamescampbell.us/posts/dear-jane/</link>
-      <pubDate>Sun, 11 Feb 2018 12:34:41 -0500</pubDate>
-      
-      <guid>https://www.jamescampbell.us/posts/dear-jane/</guid>
-      <description>Chapter One It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.
-However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.</description>
+      <guid>https://www.jamescampbell.us/posts/on-photography-and-joy/</guid>
+      <description>To Begin, What Do I Call Myself Online?
+The problem with doing many things is that I have trouble filling in my bio information on social networking sites. Do I say &amp;lsquo;photographer&amp;rsquo; even though it is not my day job? Do I say &amp;lsquo;web developer&amp;rsquo; even though a lot of the times I am just solving issues for clients and not actually coding? Do I say founder of InstantDC.com and curator of photo exhibitions, even though this is usually once or twice a year?</description>
     </item>
     
     <item>
@@ -81,6 +59,39 @@ New technology is great, but we need to figure out what it means and how it fits
       <description>I&amp;rsquo;ve complained about Flickr&amp;rsquo;s new redesign enough. There are some positives about the service that still out-do any other online photo sharing website.
 For example, I am one of the lucky ones who have been grandfathered into Flickr&amp;rsquo;s unlimited photo plan when my Pro plan was renewed earlier this year. This means that for $25 per year I get unlimited photo storage.
 This fact, coupled with the auto-upload feature in the Flickr app for the iPhone means I have everything I need to backup and store all of my photos taken on my iPhone.</description>
+    </item>
+    
+    <item>
+      <title>My Daily News Routine in 2013</title>
+      <link>https://www.jamescampbell.us/posts/daily-news-routine-2013/</link>
+      <pubDate>Mon, 02 Sep 2013 10:10:10 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/daily-news-routine-2013/</guid>
+      <description>It is impossible for anyone to keep up with everything that happens every single day.
+Back in 2008, stuck between Youtube videos, tweets, Flickr contacts, etcetera, I realized this. I decided to filter out what I really needed daily through a tight collection of RSS feeds and email subscriptions. I started with an initial list of 10 to 20 in Google Reader and it grew from there. I will skip the growing pains of this method, but trust me, it was hard to find a happy medium between being overwhelmed with content and feeling informed.</description>
+    </item>
+    
+    <item>
+      <title>A List of Google Alternatives</title>
+      <link>https://www.jamescampbell.us/posts/a-list-google-alternatives/</link>
+      <pubDate>Mon, 08 Jul 2013 10:10:10 -0500</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/a-list-google-alternatives/</guid>
+      <description>I used to love Google services and their policy of &amp;ldquo;don&amp;rsquo;t be evil.&amp;rdquo; The anagram solver tells me that the phrase turns into the word &amp;lsquo;violented.&amp;rsquo; Well I definitely feel whatever that means.
+I was a huge fan of Google Reader and Google Analytics. I even setup and managed google analytic accounts for websites that I created for clients. Not today.
+I do understand it is probably cliche in the ever-growing hipster-tech community to be anti-google but I really don&amp;rsquo;t want to have my digital life attached to a single service where I am the product, which is also the reason I have a largely vacant Facebook account.</description>
+    </item>
+    
+    <item>
+      <title>The Goal</title>
+      <link>https://www.jamescampbell.us/posts/the-goal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamescampbell.us/posts/the-goal/</guid>
+      <description>The goal should be do create things that make you happy.
+Destroy and otherwise ignore the things that don&amp;rsquo;t.
+Never stop noticing the small things.
+Never be too busy to be able to talk to a stranger about nothing.</description>
     </item>
     
   </channel>

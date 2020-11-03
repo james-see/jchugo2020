@@ -9,8 +9,8 @@ pygmentsCodefences       = true
 # googleAnalytics        = ""                               # Tracking code, eg. "UA-30108845-1"
 
 [params]
-    dateform             = "Mon Jan 02, 2006"
-    dateformfull         = "Mon Jan 2 2006 15:04:05 EST"
+    dateform             = "Jan 02, 2006"
+    dateformfull         = "Jan 2 2006 15:04:05 EST"
     favicon              = "favicon.ico"
     homepage             = "main"                           # What to call the home page link
     footerText           = "All rights reserved © 2013-2020"
