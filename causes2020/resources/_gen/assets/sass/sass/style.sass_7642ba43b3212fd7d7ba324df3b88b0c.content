@@ -160,6 +160,8 @@ article {
   article pre > code {
     border: none; }
   article code {
+    white-space: pre-line;
+    overflow-wrap: break-word;
     font-size: 0.9rem;
     font-family: 'Source Code Pro', monospace;
     padding: 0.1rem;
