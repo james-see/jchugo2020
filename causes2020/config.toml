@@ -1,6 +1,6 @@
 baseURL = "https://www.jamescampbell.us/"
 languageCode = "en-us"
-title = "Causes and Effects"
+title = "Causes & Effects"
 defaultContentLanguage   = "en"
 isMultilingual           = false
 theme                    = "sam"
@@ -13,12 +13,12 @@ pygmentsCodefences       = true
     dateformfull         = "Mon Jan 2 2006 15:04:05 EST"
     favicon              = "favicon.ico"
     homepage             = "main"                           # What to call the home page link
-    footerText           = "Causes and Effects 2020"
+    footerText           = "All rights reserved © 2013-2020"
 
 # Metadata for Open Graph and Twitter
-    description          = "A new Hugo site."               # Max 160 characters show in search results
+    description          = "James Campbell website pushing buttons since 1981."               # Max 160 characters show in search results
     images               = ["tn.png"]                       # Image that shows on Twitter cards and Open Graph links to the site
-    title                = "Call me Sam"
+    title                = "Causes & Effects"
     # rss                = ""
 
 [[params.videoBackground.sources]]
@@ -45,4 +45,4 @@ pygmentsCodefences       = true
     text = "who is james?"
 
 [imaging]
-    quality = 75
+    quality = 80

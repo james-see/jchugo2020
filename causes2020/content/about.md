@@ -3,14 +3,27 @@ title: "About"
 date: 2018-02-13T13:42:49-05:00
 ---
 
-Hello, I'm Sam. I'm a theme for [Hugo](https://gohugo.io/). I'm an extremely customizable, content-focused theme that lets you showcase your work your way. I'm [open source on GitHub](https://github.com/victoriadrake/hugo-theme-sam/).
+I am a husband, father, and technologist living near Washington DC.
 
-I have slick minimalist templates for list pages (such as a list of blog posts) and single pages (a page to read one blog post). You can use tags on your content, and view content by tags.
+I enjoy working on projects that venn art & code as well as making and listening to music.
 
-I also have a simple responsive gallery feature. It'll look great on any screen, and all you have to do is provide a folder of images.
+hackercode:
 
-If you want to get really fancy, you can add an option video background to my main page.
+`v5sw7hw4pr6MSCLXck4edu9Aln5ma4os6UMedVcr7bo7ga3BCa35geMs7Sp/3+/4h7et5`
 
-I'm built and maintained by [Victoria Drake](https://victoria.dev) and a lovely team of [contributors](https://github.com/victoriadrake/hugo-theme-sam/graphs/contributors).
+https://web.archive.org/web/20150706091246/http://shine.eu.org/hackerkey.html
 
-This page uses the default `baseof.html` template.
+```
+-----BEGIN GEEK CODE BLOCK-----
+Version: 3.12
+GS d+ s+: !a C++ UL+++ P+ L++ E W+++ N++ o-- K- w--
+O- M++ V+ PS PE Y PGP++ t 5 X++ R tv b++ DI- D+
+G-- e+ h---- r+++ y++++
+------END GEEK CODE BLOCK------
+```
+
+```
+---------------------- OmniCode 0.1.6 -----------------------
+sxy cm183 kg99 skeaaf73 ha2a1a1b ey5f523f.hazel esO sp= Ag1981 anE hdd Lo38,88N,77.09W ZoT RlM Kd2y PeC MBINTP FHb UF? IN8 AdC PrPython(7)
+----------- Omnicode http://www.gadgeteer.net/omnicode/ -----------
+```

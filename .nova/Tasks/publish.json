@@ -1,0 +1,9 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "cd ~\/projects\/jchugo2020\/causes2020\nrm -rf ~\/projects\/jamesacampbell.github.io\/docs\/\ncp -R public\/* ~\/projects\/jamesacampbell.github.io\/docs\/\ncp ~\/projects\/jamesacampbell.github.io\/trans\/* ~\/projects\/jamesacampbell.github.io\/docs\/\ngit yolo"
+    }
+  },
+  "identifier" : "DE072CEA-AECC-4EC9-AF26-D85A95CD0372"
+}

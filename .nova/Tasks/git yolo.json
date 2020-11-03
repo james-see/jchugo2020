@@ -3,6 +3,10 @@
     "build" : {
       "enabled" : true,
       "script" : "cd ~\/projects\/jchugo2020\ngit yolo"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "cd ~\/projects\/jchugo2020\/causes2020\nhugo serve"
     }
   },
   "identifier" : "47759489-404D-4FD4-AD1D-56DFE1C72CBB"
