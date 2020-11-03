@@ -1,27 +1,27 @@
 ---
-title: "_Long_ Form Post"
-date: 2018-03-08T20:18:53-05:00
+title: "Music from the Terminal"
+date: 2019-03-08T20:18:53-05:00
 showDate: true
 draft: false
-tags: ["blog","code"]
+tags: ["blog", "code"]
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus eget nunc scelerisque viverra. Quam vulputate dignissim suspendisse in est ante in nibh mauris. Pharetra magna ac placerat vestibulum lectus mauris. Eget lorem dolor sed viverra ipsum. Elementum nisi quis eleifend quam adipiscing. Aliquet nec ullamcorper sit amet risus. Auctor neque vitae tempus quam pellentesque. Tincidunt lobortis feugiat vivamus at augue. Leo vel orci porta non pulvinar neque laoreet. Non enim praesent elementum facilisis leo vel.
 
 > In nibh mauris cursus mattis. Enim ut sem viverra aliquet eget sit. Risus sed vulputate odio ut enim. Id interdum velit laoreet id.
 >
-> * Id aliquet risus feugiat in ante metus dictum. 
-> * Enim nulla aliquet porttitor lacus luctus accumsan tortor. 
+> - Id aliquet risus feugiat in ante metus dictum.
+> - Enim nulla aliquet porttitor lacus luctus accumsan tortor.
 >
 > A scelerisque purus semper eget duis at tellus at. Proin fermentum leo vel orci porta non pulvinar. Nunc scelerisque viverra mauris in. Accumsan tortor posuere ac ut consequat. Lorem ipsum dolor sit amet consectetur adipiscing. Varius sit amet mattis vulputate enim nulla. Diam quis enim lobortis scelerisque fermentum dui faucibus in.
 
 Accumsan tortor posuere ac ut consequat.
 
-* placerat
-* aliquet
-* egestas sed
+- placerat
+- aliquet
+- egestas sed
 
-Tortor id aliquet lectus proin nibh nisl condimentum id venenatis. 
+Tortor id aliquet lectus proin nibh nisl condimentum id venenatis.
 
 1. scelerisque
 2. habitasse
@@ -31,10 +31,10 @@ Pretium `aenean pharetra magna` ac placerat vestibulum lectus. Gravida arcu ac t
 
 Nulla pharetra diam:
 
-| sit | amet |
-|-----|------|
-| nisl | suscipit |
-|adipiscing | bibendum |
+| sit        | amet     |
+| ---------- | -------- |
+| nisl       | suscipit |
+| adipiscing | bibendum |
 
 Elit ut aliquam purus sit. Tortor id aliquet lectus proin nibh nisl condimentum id venenatis. Dictumst quisque sagittis purus sit. Consectetur purus ut faucibus pulvinar. Neque ornare aenean euismod elementum nisi. Nisl nisi scelerisque eu ultrices vitae auctor. Morbi tristique senectus et netus et malesuada fames ac turpis. Dolor morbi non arcu risus quis. Tortor pretium viverra suspendisse potenti.
 

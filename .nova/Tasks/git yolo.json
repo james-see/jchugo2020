@@ -1,0 +1,9 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "cd ~\/projects\/jchugo2020\ngit yolo"
+    }
+  },
+  "identifier" : "47759489-404D-4FD4-AD1D-56DFE1C72CBB"
+}
