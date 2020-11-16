@@ -290,4 +290,12 @@ article {
   justify-content: center;
   align-items: center; }
 
+.inline-svg {
+  display: inline-block;
+  height: 1.15rem;
+  width: 1.15rem;
+  top: 0.15rem;
+  position: relative;
+  background-color: blue; }
+
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="James Campbell website pushing buttons since 1981.">
+<title>
+    Why I Use Pyenv and Pipenv for All Python Projects - Causes &amp; Effects
+</title>
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.cc110abaa486c4c5f9f1c83fa3d6646b8135c82d6677bfa92800774d88f88522.css" integrity="sha256-zBEKuqSGxMX58cg/o9Zka4E1yC1md7&#43;pKAB3TYj4hSI=" crossorigin="anonymous" media="screen">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.jamescampbell.us/img/pyenv.png"/>
+
+<meta name="twitter:title" content="Why I Use Pyenv and Pipenv for All Python Projects"/>
+<meta name="twitter:description" content="My Python workflow is constantly changing as new tools emerge to make things faster and easier. In this post, I want to share my current workflow as of November 2020.
+My current step zero workflow for any project or even a fresh OS relies on Pyenv and Pipenv, and here is how:
+Installing Pyenv brew install pyenv Once pyenv is installed, you can run the bare command and list all of the options."/>
+
+<meta property="og:title" content="Why I Use Pyenv and Pipenv for All Python Projects" />
+<meta property="og:description" content="My Python workflow is constantly changing as new tools emerge to make things faster and easier. In this post, I want to share my current workflow as of November 2020.
+My current step zero workflow for any project or even a fresh OS relies on Pyenv and Pipenv, and here is how:
+Installing Pyenv brew install pyenv Once pyenv is installed, you can run the bare command and list all of the options." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.jamescampbell.us/posts/pyenv-pipenv/" />
+<meta property="og:image" content="https://www.jamescampbell.us/img/pyenv.png" />
+<meta property="article:published_time" content="2020-11-15T10:10:10-05:00" />
+<meta property="article:modified_time" content="2020-11-15T10:10:10-05:00" /><meta property="og:site_name" content="Causes &amp; Effects" />
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Why I Use Pyenv and Pipenv for All Python Projects
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Why I Use Pyenv and Pipenv for All Python Projects</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Nov 15, 2020 &#183; 554 words
+        <div class="tag-container">
+            
+            
+            <span class="tag">
+                <a href="/tags/pyenv/">
+                    pyenv
+                </a>
+            </span>
+            
+            
+            
+            <span class="tag">
+                <a href="/tags/tips/">
+                    tips
+                </a>
+            </span>
+            
+            
+            
+            <span class="tag">
+                <a href="/tags/python/">
+                    python
+                </a>
+            </span>
+            
+            
+            
+            <span class="tag">
+                <a href="/tags/pipenv/">
+                    pipenv
+                </a>
+            </span>
+            
+            
+        </div>
+    </aside>
+    <hr />
+    <article role="article">
+        <p>My Python workflow is constantly changing as new tools emerge to make things faster and easier. In this post, I want to share my current workflow as of November 2020.</p>
+<p>My current step zero workflow for any project or even a <a href="https://github.com/jamesacampbell/fresh-mac">fresh OS</a> relies on <a href="https://github.com/pyenv/pyenv">Pyenv</a> and Pipenv, and here is how:</p>
+<h3 id="installing-pyenv">Installing Pyenv</h3>
+<pre><code class="language-@bash" data-lang="@bash">brew install pyenv
+</code></pre><p>Once <code>pyenv</code> is installed, you can run the bare command and list all of the options.</p>
+<p>The main two are <code>pyenv install</code> and <code>pyenv local</code>.</p>
+<p>I start out on a new machine with the following:</p>
+<p><code>pyenv install 3.8.5</code> which is only needed once to install the version.</p>
+<p>Then I run <code>pyenv global 3.8.5</code> which sets the global python default as <code>3.8.5</code>.</p>
+<p>To view all installed versions, you do <code>pyenv versions</code> like so:</p>
+<pre><code class="language-@bash" data-lang="@bash">$ pyenv versions
+  system
+  3.6.8
+  3.7.7
+  3.7.8
+  3.8.1
+  3.8.2
+* 3.8.5 (set by /Users/jamescampbell/.pyenv/version)
+  3.9.0b5
+</code></pre><h3 id="using-pyenv-local">Using Pyenv Local</h3>
+<p>For any new project in my projects folder:</p>
+<ol>
+<li><code>mkdir ~/projects/new-project</code></li>
+<li><code>cd ~/projects/new-project</code></li>
+<li><code>pyenv local 3.8.5</code> which creates a new dot file <code>.python-version</code></li>
+</ol>
+<p><em>That is great</em>, you may say, it is very similar to <a href="https://github.com/rbenv/rbenv">rbenv</a>, <a href="https://github.com/nvm-sh/nvm">nvm</a>, <a href="https://www.jenv.be/">jenv</a>, and others&mdash; but how do I manage pypi packages for each version?</p>
+<p><strong>The answer</strong> is to handle it per project and with <a href="https://pipenv.pypa.io/en/latest/">pipenv</a>.</p>
+<p><a href="https://github.com/pyenv/pyenv">Full Documentation</a> of Pyenv.</p>
+<h3 id="installing-pipenv">Installing Pipenv</h3>
+<p>Pipenv is a virtual environment and package manager all in one. It was created by <a href="https://kenreitz.org/">Ken Reitz</a>, the guy who is famous for Requests, so you know it is top quality and makes sense.
+To install, <code>pip install pipenv</code> for the project and pyenv version of Python you are working on.</p>
+<h3 id="how-to-use-pipenv">How To Use Pipenv</h3>
+<p>You use <code>pipenv install</code> to replace the bare <code>pip</code> command to install all packages. This creates a lockfile, <code>.Piplock</code> and keeps it up to date along with a <code>.Pipfile</code> that is very similar to package.json or a config.json file if coming from javascript. You want to make sure the Piplock dotfile is gitignored properly, just like the package.lock file from  javascript projects.</p>
+<p>To use the environment, it is very similar to <code>venv</code>, you execute <code>pipenv shell</code> which will activate your virtual environment that has everything installed and locked in. When you are done you simply run <code>exit</code> to get out of the virtual environment.</p>
+<p>As an alternative to the <code>pipenv install</code> for individual packages, you can also point it to a requirements.txt file via <code>pipenv install -r /path/to/requirements.txt</code>.</p>
+<p><a href="https://pipenv.pypa.io/en/latest/basics/">Full Documentation</a></p>
+<h3 id="common-use-case">Common Use Case</h3>
+<p>I will step you through a common use case:</p>
+<ol>
+<li>Create a new project folder</li>
+<li>Change directory into the folder</li>
+<li>Run <code>pyenv local 3.8.5</code> or whatever version you want to use</li>
+<li>Run <code>pipenv install requests, beautifulsoup4</code> or whatever packages you need</li>
+<li>Run <code>pipenv shell</code></li>
+<li>Write your python code and iterate from there using version control, etc. like normal</li>
+<li>When you are done, exit the virtual environment via <code>exit</code></li>
+</ol>
+<p>As you can see, the ultra-combo of having python version control locked down for my global as well as my local project environment as well as having package versioning at the project level along with a virtual environment specific project saves me tons of time and just works.</p>
+<p>Having a Pipfile and a requirements.txt file at the root of my project along with the <code>.python-version</code> dotfile ensures that all of my Python code stays organizes and is garunteed to work and be repeatable and explorable by others.</p>
+
+    </article>
+</div>
+
+
+        
+<nav role="navigation" class="flex-container bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/posts">posts</a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/shop">shop</a>
+        
+            &#183; 
+            <a href="/portfolio">portfolio</a>
+        
+            &#183; 
+            <a href="/about">who is james?</a>
+        
+    
+    &#183; 
+    <a href="/">
+        main
+    </a>
+
+</p>
+</nav>
+
+    </main>
+    
+    <footer class="flex-container footer">All rights reserved © 2013-2020
+</footer>
+    
+    
+</body>
+
+</html>
