@@ -62,7 +62,7 @@ To install, `pip install pipenv` for the project and pyenv version of Python you
 
 ### How To Use Pipenv
 
-You use `pipenv install` to replace the bare `pip` command to install all packages. This creates a lockfile, `.Piplock` and keeps it up to date along with a `.Pipfile` that is very similar to package.json or a config.json file if coming from javascript. You want to make sure the Piplock dotfile is gitignored properly, just like the package.lock file from  javascript projects.
+You use `pipenv install` to replace the bare `pip` command to install all packages. This creates a lockfile, `Piplock` and keeps it up to date along with a `Pipfile` that is very similar to package.json or a config.json file if coming from javascript. You want to make sure the Piplock dotfile is gitignore-d properly, just like the package.lock file from  javascript projects.
 
 To use the environment, it is very similar to `venv`, you execute `pipenv shell` which will activate your virtual environment that has everything installed and locked in. When you are done you simply run `exit` to get out of the virtual environment.
 
@@ -84,7 +84,7 @@ I will step you through a common use case:
 
 As you can see, the ultra-combo of having python version control locked down for my global as well as my local project environment as well as having package versioning at the project level along with a virtual environment specific project saves me tons of time and just works. 
 
-Having a Pipfile and a requirements.txt file at the root of my project along with the `.python-version` dotfile ensures that all of my Python code stays organizes and is garunteed to work and be repeatable and explorable by others.
+Having a Pipfile and a requirements.txt file at the root of my project along with the `.python-version` dotfile ensures that all of my Python code stays organizes and is guaranteed to work and be repeatable and explorable by others.
 
 
 
