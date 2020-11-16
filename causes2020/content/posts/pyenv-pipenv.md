@@ -2,7 +2,6 @@
 title: "Why I Use Pyenv and Pipenv for All Python Projects"
 date: 2020-11-15T10:10:10-05:00
 showDate: true
-draft: true
 tags: ["pyenv", "tips", "python", "pipenv"]
 images:
   - /img/pyenv.png
