@@ -2,7 +2,7 @@
 title: "Portfolio"
 type: "gallery"
 url: "/portfolio"
-maxWidth: "600x"
+maxWidth: "800x"
 clickablePhotos: false
 ---
 
