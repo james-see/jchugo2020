@@ -13,7 +13,7 @@ pygmentsCodefences       = true
     dateformfull         = "Jan 2 2006 15:04:05 EST"
     favicon              = "favicon.ico"
     homepage             = "main"                           # What to call the home page link
-    footerText           = "All rights reserved © 2013-2020"
+    footerText           = "All rights reserved © 2013-2021"
 
 # Metadata for Open Graph and Twitter
     description          = "James Campbell website pushing buttons since 1981."               # Max 160 characters show in search results
