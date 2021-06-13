@@ -11,4 +11,6 @@ cp -R public/ ~/projects/jamesacampbell.github.io/docs/
 cp -R ~/projects/jamesacampbell.github.io/trans/ ~/projects/jamesacampbell.github.io/docs/
 # push the changes to github server
 cd ~/projects/jamesacampbell.github.io/
-git yolo
+git add -A 
+git commit -m 'updates to site'
+git push
