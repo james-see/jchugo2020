@@ -1,6 +1,6 @@
 #!/bin/sh
 set -ex
-icons="twitter github"
+icons="twitter github rss"
 
 dest=fontawesome
 url=https://raw.githubusercontent.com/ionic-team/ionicons/master/src/svg/logo-

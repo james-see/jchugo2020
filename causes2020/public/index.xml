@@ -4,142 +4,429 @@
     <title>Causes &amp; Effects</title>
     <link>https://www.jamescampbell.us/</link>
     <description>Recent content on Causes &amp; Effects</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>None of Your Business</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Jun 2021 23:19:10 -0500</lastBuildDate><atom:link href="https://www.jamescampbell.us/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>james@jamescampbell.us (James Campbell)</managingEditor>
+    <webMaster>james@jamescampbell.us (James Campbell)</webMaster>
+    <copyright>2022 James Campbell All rights reserved</copyright>
+    <lastBuildDate>Wed, 05 Jan 2022 17:19:10 -0505</lastBuildDate><atom:link href="https://www.jamescampbell.us/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Weather Forecast with Axios &amp; VueJS</title>
+      <link>https://www.jamescampbell.us/posts/getting-the-forecast/</link>
+      <pubDate>Wed, 05 Jan 2022 17:19:10 -0505</pubDate>
+      <author>james@jamescampbell.us (James Campbell)</author>
+      <guid>https://www.jamescampbell.us/posts/getting-the-forecast/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.jamescampbell.us/posts/weatherus.jpeg&#34; alt=&#34;weather&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I am learning that my computer-focused work is seasonal. As summer 2021 slid into fall 2021 I noticed my Github commits for my own projects go up and up. I am ok with this seasonal shift. I wonder that if I lived in a tropical location, would I pick a different vocation or just work from a hut on the beach all day?&lt;/p&gt;
+&lt;p&gt;Side projects and new ideas in general excite me. Moving as fast as possible from idea to a running application tickles the parts of me that seek creation, instant gratification, and control.&lt;/p&gt;
+&lt;p&gt;Most side projects I leave unfinished or turn them into command line tools like the &lt;a href=&#34;https://github.com/jamesacampbell/ufwvisitorcounter&#34; title=&#34;parses and returns file of the top visitors from ufw logs to your server&#34;&gt;ufw (uncomplicated firewall) visitor log parser&lt;/a&gt;. That tool serves the purpose to track visitors that happen upon your web server without all the bloat of Google Analytics or other third parties snooping or selling your data.&lt;/p&gt;
+&lt;p&gt;Other projects make it to full completion as landing pages or web tools. The web weather app I just completed is one of those. Still others end up as forget-me-nots for my future self in the form of gists on github. In fact, this application itself came about after I rediscovered a &lt;a href=&#34;https://gist.github.com/jamesacampbell/6fd177f252cd09c28a3b023d34c3a0a0&#34; title=&#34;vue js forget me not gist&#34;&gt;vue.js forget-me-not gist&lt;/a&gt; I had created 3 years(!) ago.&lt;/p&gt;
+&lt;h3 id=&#34;requirements-gathering&#34;&gt;Requirements Gathering&lt;/h3&gt;
+&lt;p&gt;Here is what I had as the initial requirements in my head of what I wanted to do:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Find public free APIs for weather forecast data by zipcode&lt;/li&gt;
+&lt;li&gt;Get the data as json and display it on a web page&lt;/li&gt;
+&lt;li&gt;Allow users to input their zipcode&lt;/li&gt;
+&lt;li&gt;Not have to load a separate page for results&lt;/li&gt;
+&lt;li&gt;Not have to store or transile / compile javascript via node or anything to get it to run&lt;/li&gt;
+&lt;li&gt;Make it truly a Single Page Application (SPA)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I was able to hit all of those requirements and more, which ended up making it mobile-first display and other niceties like free hosting on github. Total code time was probably less than 8 hours, including deploying to github and spending time tweaking the css color palette and pixel pushing to ensure centered content and visibility on mobile. It is live at &lt;a href=&#34;https://www.jamescampbell.us/getweatherbyzipcode&#34; title=&#34;get forecasted weather by zipcode&#34;&gt;getweatherbyzipcode&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.jamescampbell.us/posts/weathermvp.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;search-for-free-apis&#34;&gt;Search for FREE APIs&lt;/h3&gt;
+&lt;p&gt;These needed to be free without an account or auth code at all. Free endpoints to just access without limits. I ended up finding &lt;a href=&#34;https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/&#34; title=&#34;free list of apis&#34;&gt;this&lt;/a&gt; article that showed one api for weather that needed latitude and longitude and another api that allowed you to get latitude and longitude based on zipcode. So I married the two together and turned it into chained callbacks in axios to first get the latitude &amp;amp; longitude, and then passing those into the url of the second &lt;code&gt;axios.get&lt;/code&gt; to return the actual weather data to the user.&lt;/p&gt;
+&lt;h3 id=&#34;rendering-on-mobile&#34;&gt;Rendering on Mobile&lt;/h3&gt;
+&lt;p&gt;A single line of meta tag in bare html fixes most problems displaying on mobile:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag&#34; title=&#34;mozilla mobile meta tags&#34;&gt;Mozilla&lt;/a&gt; explains this succintly if you want to read about this and other modifications.&lt;/p&gt;
+&lt;h3 id=&#34;why-vuejs&#34;&gt;Why VueJS&lt;/h3&gt;
+&lt;p&gt;The neat thing about VueJS is its ability to stay out of the way. I was able to use a single &lt;code&gt;index.html&lt;/code&gt; loading VueJS from the unpkg CDN because I could just use the Vue code as needed sprinkled in as custom variables as a simple &lt;code&gt;&amp;lt;script&amp;gt;let app = new App()&lt;/code&gt; setup that is created at page render time on the client while still maintaining very fast page load times. No transpiling needed. No Node bs. No package.json needed. This is pure magic to me in terms of lightning fast implementation speed vs. scaffolding and dev-ops background bog-downing of brain matter that takes away from shipping product.&lt;/p&gt;
+&lt;h3 id=&#34;why-axios&#34;&gt;Why Axios&lt;/h3&gt;
+&lt;p&gt;Axios is my default for async grabbing of content from elsewhere to get it to the page. I am sure there are better implementations now with ES6 / Typescript that are built-in with promises and await and async out of the box. As I have learned over the 20+ years of doing code work, &lt;em&gt;better&lt;/em&gt; is subjective and dependant heavily on goal-setting &amp;amp; priorities. I move faster with what I already know or can remember from a few Stackoverflow checks.&lt;/p&gt;
+&lt;h3 id=&#34;improvements&#34;&gt;Improvements&lt;/h3&gt;
+&lt;p&gt;Post MVP, I identify the following improvements I may make:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Moving the JS files (Axios &amp;amp; Vue) to be local and static vs. loading them from the unpkg CDN&lt;/li&gt;
+&lt;li&gt;Switching to native Typescript / ES6 to do the get requests instead of Axios (&lt;a href=&#34;https://medium.com/dont-leave-me-out-in-the-code/handling-javascript-promises-with-async-await-or-then-ceebc235933d&#34; title=&#34;why use async/await vs. axios&#34;&gt;here&lt;/a&gt; is a good post explaining why and how)&lt;/li&gt;
+&lt;li&gt;Exposing more of the forecast data like wind speed and others&lt;/li&gt;
+&lt;li&gt;Adding a sparkline style line graph using D3 or similar to show the temperature change for the next 72 hours visually&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;extras&#34;&gt;Extras&lt;/h3&gt;
+&lt;h4 id=&#34;_source-code_&#34;&gt;&lt;em&gt;Source code&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;Source code is &lt;a href=&#34;https://github.com/jamesacampbell/getweatherbyzipcode&#34; title=&#34;source code&#34;&gt;public on my Github&lt;/a&gt; where you can see it really is a single index.html file.&lt;/p&gt;
+&lt;h4 id=&#34;_sharability_&#34;&gt;&lt;em&gt;Sharability&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;I implemented twitter card for the application, which required a square image and some twitter related metadata. Twitter explains this well and even has a &lt;a href=&#34;https://cards-dev.twitter.com/validator&#34; title=&#34;twitter card validator&#34;&gt;card tester tool&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;_favicon_&#34;&gt;&lt;em&gt;Favicon&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;I made custom favicons that even render properly on mobile bookmarking sites etc. using &lt;a href=&#34;https://realfavicongenerator.net/&#34; title=&#34;favicon generator&#34;&gt;realfavicongenerator.net&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Golang All The Things</title>
       <link>https://www.jamescampbell.us/posts/golang-all-the-things/</link>
       <pubDate>Sat, 05 Jun 2021 23:19:10 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/golang-all-the-things/</guid>
-      <description>I am in the process of rewriting most of my python code into golang projects. One of which that is already complete is gofindpi that replaces the pypi package findpi
-Why am I doing this?
-I am convinced that, given enough learning time to get past the foibles of Golang, anything written in Golang will be better than Python, and this is an objective conclusion I came to, even though I will always love Python.</description>
+      <description>&lt;p&gt;I am in the process of rewriting most of my python code into golang projects. One of which that is already complete is  &lt;a href=&#34;https://github.com/jamesacampbell/gofindpi&#34; title=&#34;faster than findpi and nmap&#34;&gt;gofindpi&lt;/a&gt; that replaces the pypi package &lt;a href=&#34;https://github.com/jamesacampbell/findpi&#34; title=&#34;faster than nmap&#34;&gt;findpi&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Why am I doing this?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I am convinced that, given enough learning time to get past the foibles of Golang, anything written in Golang will be better than Python, and this is an objective conclusion I came to, even though I will always love Python.&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Why I Use Pyenv and Pipenv for All Python Projects</title>
+      <title>Use Pyenv and Pipenv</title>
       <link>https://www.jamescampbell.us/posts/pyenv-pipenv/</link>
       <pubDate>Sun, 15 Nov 2020 10:10:10 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/pyenv-pipenv/</guid>
-      <description>My Python workflow is constantly changing as new tools emerge to make things faster and easier. In this post, I want to share my current workflow as of November 2020.
-My current step zero workflow for any project or even a fresh OS relies on Pyenv and Pipenv, and here is how:
-Installing Pyenv brew install pyenv Once pyenv is installed, you can run the bare command and list all of the options.</description>
+      <description>&lt;p&gt;My Python workflow is constantly changing as new tools emerge to make things faster and easier. In this post, I want to share my current workflow as of November 2020.&lt;/p&gt;
+&lt;p&gt;My current step zero workflow for any project or even a &lt;a href=&#34;https://github.com/jamesacampbell/fresh-mac&#34;&gt;fresh OS&lt;/a&gt; relies on &lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;Pyenv&lt;/a&gt; and Pipenv, and here is how:&lt;/p&gt;
+&lt;h3 id=&#34;installing-pyenv&#34;&gt;Installing Pyenv&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-@bash&#34; data-lang=&#34;@bash&#34;&gt;brew install pyenv
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once &lt;code&gt;pyenv&lt;/code&gt; is installed, you can run the bare command and list all of the options.&lt;/p&gt;
+&lt;p&gt;The main two are &lt;code&gt;pyenv install&lt;/code&gt; and &lt;code&gt;pyenv local&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I start out on a new machine with the following:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pyenv install 3.8.5&lt;/code&gt; which is only needed once to install the version.&lt;/p&gt;
+&lt;p&gt;Then I run &lt;code&gt;pyenv global 3.8.5&lt;/code&gt; which sets the global python default as &lt;code&gt;3.8.5&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To view all installed versions, you do &lt;code&gt;pyenv versions&lt;/code&gt; like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-@bash&#34; data-lang=&#34;@bash&#34;&gt;$ pyenv versions
+  system
+  3.6.8
+  3.7.7
+  3.7.8
+  3.8.1
+  3.8.2
+* 3.8.5 (set by /Users/jamescampbell/.pyenv/version)
+  3.9.0b5
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;using-pyenv-local&#34;&gt;Using Pyenv Local&lt;/h3&gt;
+&lt;p&gt;For any new project in my projects folder:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;mkdir ~/projects/new-project&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cd ~/projects/new-project&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyenv local 3.8.5&lt;/code&gt; which creates a new dot file &lt;code&gt;.python-version&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;That is great&lt;/em&gt;, you may say, it is very similar to &lt;a href=&#34;https://github.com/rbenv/rbenv&#34;&gt;rbenv&lt;/a&gt;, &lt;a href=&#34;https://github.com/nvm-sh/nvm&#34;&gt;nvm&lt;/a&gt;, &lt;a href=&#34;https://www.jenv.be/&#34;&gt;jenv&lt;/a&gt;, and others&amp;mdash; but how do I manage pypi packages for each version?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The answer&lt;/strong&gt; is to handle it per project and with &lt;a href=&#34;https://pipenv.pypa.io/en/latest/&#34;&gt;pipenv&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;Full Documentation&lt;/a&gt; of Pyenv.&lt;/p&gt;
+&lt;h3 id=&#34;installing-pipenv&#34;&gt;Installing Pipenv&lt;/h3&gt;
+&lt;p&gt;Pipenv is a virtual environment and package manager all in one. It was created by &lt;a href=&#34;https://kenreitz.org/&#34;&gt;Ken Reitz&lt;/a&gt;, the guy who is famous for Requests, so you know it is top quality and makes sense.
+To install, &lt;code&gt;pip install pipenv&lt;/code&gt; for the project and pyenv version of Python you are working on.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-use-pipenv&#34;&gt;How To Use Pipenv&lt;/h3&gt;
+&lt;p&gt;You use &lt;code&gt;pipenv install&lt;/code&gt; to replace the bare &lt;code&gt;pip&lt;/code&gt; command to install all packages. This creates a lockfile, &lt;code&gt;Piplock&lt;/code&gt; and keeps it up to date along with a &lt;code&gt;Pipfile&lt;/code&gt; that is very similar to package.json or a config.json file if coming from javascript. You want to make sure the Piplock dotfile is gitignore-d properly, just like the package.lock file from  javascript projects.&lt;/p&gt;
+&lt;p&gt;To use the environment, it is very similar to &lt;code&gt;venv&lt;/code&gt;, you execute &lt;code&gt;pipenv shell&lt;/code&gt; which will activate your virtual environment that has everything installed and locked in. When you are done you simply run &lt;code&gt;exit&lt;/code&gt; to get out of the virtual environment.&lt;/p&gt;
+&lt;p&gt;As an alternative to the &lt;code&gt;pipenv install&lt;/code&gt; for individual packages, you can also point it to a requirements.txt file via &lt;code&gt;pipenv install -r /path/to/requirements.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pipenv.pypa.io/en/latest/basics/&#34;&gt;Full Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;common-use-case&#34;&gt;Common Use Case&lt;/h3&gt;
+&lt;p&gt;I will step you through a common use case:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a new project folder&lt;/li&gt;
+&lt;li&gt;Change directory into the folder&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;pyenv local 3.8.5&lt;/code&gt; or whatever version you want to use&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;pipenv install requests, beautifulsoup4&lt;/code&gt; or whatever packages you need&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;pipenv shell&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Write your python code and iterate from there using version control, etc. like normal&lt;/li&gt;
+&lt;li&gt;When you are done, exit the virtual environment via &lt;code&gt;exit&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;As you can see, the ultra-combo of having python version control locked down for my global as well as my local project environment as well as having package versioning at the project level along with a virtual environment specific project saves me tons of time and just works.&lt;/p&gt;
+&lt;p&gt;Having a Pipfile and a requirements.txt file at the root of my project along with the &lt;code&gt;.python-version&lt;/code&gt; dotfile ensures that all of my Python code stays organizes and is guaranteed to work and be repeatable and explorable by others.&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Stop Worrying and Git Yolo</title>
       <link>https://www.jamescampbell.us/posts/yolo-git-2020/</link>
       <pubDate>Sun, 11 Oct 2020 10:10:10 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/yolo-git-2020/</guid>
-      <description>Git yolo has changed my life for the better. It saves me tons of time. You never have to type in a commit comment again.
-Here is how to get the yolo alias working:
-You need to edit your gitconfig dotfile that is located at ~/.gitconfig.
-Mine before:
-$ cat ~/.gitconfig # This is Git&#39;s per-user configuration file. [user] # Please adapt and uncomment the following lines: name = jamesacampbell email = james@jamescampbell.</description>
+      <description>&lt;p&gt;Git yolo has changed my life for the better. It saves me tons of time. You never have to type in a commit comment again.&lt;/p&gt;
+&lt;p&gt;Here is how to get the yolo alias working:&lt;/p&gt;
+&lt;p&gt;You need to edit your gitconfig dotfile that is located at &lt;code&gt;~/.gitconfig&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Mine before:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cat ~/.gitconfig
+# This is Git&#39;s per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = jamesacampbell
+	email = james@jamescampbell.us
+[url &amp;quot;git@gitlab.com:&amp;quot;]
+		insteadOf = https://gitlab.com/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Mine after:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cat ~/.gitconfig
+# This is Git&#39;s per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = jamesacampbell
+	email = james@jamescampbell.us
+[url &amp;quot;git@gitlab.com:&amp;quot;]
+		insteadOf = https://gitlab.com/
+[alias]
+yolo = !git add -A &amp;amp;&amp;amp; git commit -am \&amp;quot;`curl -s http://whatthecommit.com/index.txt `\&amp;quot; &amp;amp;&amp;amp; git push -f origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This has saved me &lt;em&gt;hours&lt;/em&gt; over the past year. It uses random text snippets from &lt;a href=&#34;http://whatthecommit.com&#34;&gt;http://whatthecommit.com&lt;/a&gt; for your commit statements. So be prepared to have some silly commit statements.&lt;/p&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Streaming Music from the Terminal</title>
       <link>https://www.jamescampbell.us/posts/streaming-music-from-terminal/</link>
       <pubDate>Sat, 23 Feb 2019 21:19:10 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/streaming-music-from-terminal/</guid>
-      <description>Do you remember Rdio? It was a better than Spotify at streaming music back in 2012.
-In 2013, Entertainment Weekly compared a number of music services and judged Rdio the best, grading it &amp;ldquo;A&amp;rdquo; and writing that it had &amp;ldquo;by far the best app and online interface, making database searching and playlist curation easy&amp;rdquo; - source
-Rdio ended up not finding the right business model, or spending too much of its 200 million, or who knows what, but it filed for bankruptcy in 2015 and Pandora purchased it and all of its assets for 75 million cash.</description>
+      <description>&lt;p&gt;Do you remember Rdio? It was a better than Spotify at streaming music back in 2012.&lt;/p&gt;
+&lt;p&gt;In 2013, Entertainment Weekly compared a number of music services and judged Rdio the best, grading it &amp;ldquo;A&amp;rdquo; and writing that it had &amp;ldquo;by far the best app and online interface, making database searching and playlist curation easy&amp;rdquo; - &lt;a href=&#34;http://www.ew.com/ew/article/0,,20663844,00.html&#34; title=&#34;The best, but filed for bankruptcy.&#34;&gt;source&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Rdio ended up not finding the right business model, or spending too much of its 200 million, or who knows what, but it filed for bankruptcy in 2015 and Pandora purchased it and all of its assets for 75 million cash.&lt;/p&gt;
+&lt;p&gt;Fast forward to today, and I still use Pandora (I also am on &lt;a href=&#34;https://open.spotify.com/user/jamesanthonycampbell&#34; title=&#34;Yep, I am a hipster.&#34;&gt;Spotify&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;What doesn&amp;rsquo;t make sense to me about Pandora is that there is no desktop client. I guess they focus on mobile and web? Or is there a workaround?&lt;/p&gt;
+&lt;p&gt;Enter &lt;a href=&#34;https://6xq.net/pianobar/&#34; title=&#34;I was hesitant to link to it, I don&#39;t want it to get too popular.&#34;&gt;Pianobar&lt;/a&gt;. A thoughtful command line client for Pandora. Here is what mine looks like when I initialize it:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ pianobar
+Welcome to pianobar &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;2018.06.22&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;! Press ? &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; a list of commands.
+&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; Login... Ok.
+&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; Get stations... Ok.
+|&amp;gt;  Station &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sunset Rubdown Radio&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;54342580605901210&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; Receiving new playlist... Ok.
+|&amp;gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You Go On Ahead (Trumpet Trumpet II)&amp;#34;&lt;/span&gt; by &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sunset Rubdown&amp;#34;&lt;/span&gt; on &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dragonslayer&amp;#34;&lt;/span&gt; &amp;lt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#   -05:41/05:45&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It auto loads the previous station you were listening to, in my case it was &lt;a href=&#34;https://en.wikipedia.org/wiki/Sunset_Rubdown&#34; title=&#34;Was a great Canadian indie rock band that included piano hero Spencer Krug.&#34;&gt;Sunset Rubdown&lt;/a&gt; Radio.&lt;/p&gt;
+&lt;p&gt;It turns out if you are on a Mac, and have &lt;a href=&#34;https:/brew.sh&#34; title=&#34;homebrew is a great package manager, and works on windows and linux now too.&#34;&gt;homebrew&lt;/a&gt; installed, you can do &lt;code&gt;brew install pianobar&lt;/code&gt; and you can access and stream music from the terminal, complete with keyboard shortcuts to change stations and thumb-up (&lt;code&gt;shift + =&lt;/code&gt;) or thumb-down (&lt;code&gt;-&lt;/code&gt;) tracks. The &lt;code&gt;?&lt;/code&gt; gets you the list of all of the commands. For completeness here ya go:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;	+    love song
+	-    ban song
+	a    add music to station
+	c    create new station
+	d    delete station
+	e    explain why this song is played
+	g    add genre station
+	h    song history
+	i    print information about song/station
+	j    add shared station
+	n    next song
+	p    pause/resume playback
+	q    quit
+	r    rename station
+	s    change station
+	t    tired &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;ban song &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; month&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	u    upcoming songs
+	x    &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt; quickmix stations
+	b    bookmark song/artist
+	&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;    decrease volume
+	&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;    increase volume
+	&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;    delete seeds/feedback
+	v    create new station from song or artist
+	P    resume playback
+	S    pause playback
+	^    reset volume
+	!    change settings
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As a step further, you can create a config file at &lt;code&gt;~/.config/pianobar/config&lt;/code&gt; by &lt;code&gt;mkdir -p ~/.config/pianobar&lt;/code&gt; and &lt;code&gt;nano ~/.config/pianobar/config&lt;/code&gt; that will auto-log you into your Pandora account and even auto start a particular station of interest if you wish.&lt;/p&gt;
+&lt;p&gt;Example config from &lt;code&gt;man pianobar&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;audio_quality &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; high
+autostart_station &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+
+password &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; plaintext_password
+user &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; your@user.name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It is one of the headless apps I use every day, so I thought I would share it.&lt;/p&gt;
+&lt;p&gt;What apps are indispensable for you?&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Forever Things</title>
       <link>https://www.jamescampbell.us/posts/forever-things/</link>
       <pubDate>Fri, 25 May 2018 23:19:10 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/forever-things/</guid>
-      <description>I love brass. Brass is a hard metal that will outlast me. It is strange to think about things that will exist after we are gone. I own a Kaweco pen that is brass. Assuming I buy ink refills, I never have to buy a pen again.
-That is a single example that explains the idea behind this article. What thing can you acquire once, and then never have to buy a newer version again?</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://www.jamescampbell.us/about/</link>
-      <pubDate>Tue, 13 Feb 2018 13:42:49 -0500</pubDate>
-      
-      <guid>https://www.jamescampbell.us/about/</guid>
-      <description>I am a husband, father, and technologist living near Washington DC.
-I enjoy working on projects that merge art &amp;amp; code as well as making and listening to music.
-Let&amp;rsquo;s create the world we want.
-Current PGP fingerprint for secure communications:
-E8E2 F250 3C94 ED5F 8E3F 0E5E 3CA6 2881 76CA AB1B</description>
+      <description>&lt;p&gt;I love brass. Brass is a hard metal that will outlast me. It is strange to think about things that will exist after we are gone. I own a Kaweco pen that is brass. Assuming I buy ink refills, I never have to buy a pen again.&lt;/p&gt;
+&lt;p&gt;That is a single example that explains the idea behind this article. What thing can you acquire once, and then never have to buy a newer version again?&lt;/p&gt;
+&lt;p&gt;I came up with a list of 10 things that, if you make the right choice when purchasing, you should never have to buy again for your entire life. You may have to repair or buy parts for them, but you will never have to buy the full item again.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Toothbrush. I&amp;rsquo;ve had the &lt;a href=&#34;https://www.amazon.com/dp/B007ZN5ATQ/ref=cm_sw_em_r_mt_dp_U_MZVEDbAZDF0ZZ&#34; title=&#34;Best toothbrush available&#34;&gt;same electric toothbrush&lt;/a&gt; for 10 years. No, that is not disgusting! I buy different heads for it periodically, but the charger still works really well, and I have no plans to buy anything else.&lt;/li&gt;
+&lt;li&gt;Wallet. I have a &lt;a href=&#34;https://fieldnotesbrand.com/products/daily-carry-leather-notebook-cover&#34; title=&#34;Nice patina and gets better over time&#34;&gt;Field Notes Leather wallet&lt;/a&gt; that holds my notebook, pen, passport, and credit cards. It will definitely outlast me. Update: I procured a &lt;a href=&#34;https://www.amazon.com/dp/B002ZH8YK4/ref=cm_sw_r_tw_dp_U_x_GFmTDb7YYCNKC&#34; title=&#34;This is not the exact one but similar&#34;&gt;brass cigarette case&lt;/a&gt; that I am now using as a wallet.&lt;/li&gt;
+&lt;li&gt;Storage Trunk. Still searching.&lt;/li&gt;
+&lt;li&gt;Backpack. Still searching.&lt;/li&gt;
+&lt;li&gt;Suitcase. Still searching.&lt;/li&gt;
+&lt;li&gt;Briefcase. &lt;a href=&#34;http://a.co/22VWxxd&#34; title=&#34;100 years.&#34;&gt;Saddleback Leather Front Pocket Briefcase&lt;/a&gt; 100 year warranty!&lt;/li&gt;
+&lt;li&gt;Boots. Still searching.&lt;/li&gt;
+&lt;li&gt;Shoes. Spend $200 to $700 on a nice pair of shoes and just re-sole them. You will never have to worry about shoes ever again.&lt;/li&gt;
+&lt;li&gt;Pens. I have this &lt;a href=&#34;http://a.co/5P0KU90&#34; title=&#34;Best pen in the world.&#34;&gt;Kaweco Sport Pocket Pen&lt;/a&gt;. I never have to buy another again.&lt;/li&gt;
+&lt;li&gt;Watch. Still searching.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
     </item>
     
     <item>
       <title>On Photography and Joy</title>
       <link>https://www.jamescampbell.us/posts/on-photography-and-joy/</link>
       <pubDate>Tue, 04 Feb 2014 10:10:10 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/on-photography-and-joy/</guid>
-      <description>To Begin, What Do I Call Myself Online?
-The problem with doing many things is that I have trouble filling in my bio information on social networking sites. Do I say &amp;lsquo;photographer&amp;rsquo; even though it is not my day job? Do I say &amp;lsquo;web developer&amp;rsquo; even though a lot of the times I am just solving issues for clients and not actually coding? Do I say founder of InstantDC.com and curator of photo exhibitions, even though this is usually once or twice a year?</description>
+      <description>&lt;p&gt;&lt;strong&gt;To Begin, What Do I Call Myself Online?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The problem with doing many things is that I have trouble filling in my bio information on social networking sites. Do I say &amp;lsquo;photographer&amp;rsquo; even though it is not my day job? Do I say &amp;lsquo;web developer&amp;rsquo; even though a lot of the times I am just solving issues for clients and not actually coding? Do I say founder of InstantDC.com and curator of photo exhibitions, even though this is usually once or twice a year? Do I say musician and one-man-band GoldForLions, with singles on iTunes even though I have made about $11 total from all of my efforts? Do I try to say something clever in my profile and avoid the issue of labels altogether?&lt;/p&gt;
+&lt;p&gt;There is no easy solution, but at 32 years old, I know myself and what I love to do. I love my wife and my four-month-old son. I love to tinker with things, I love to solve problems in creative ways (strange phrase - as opposed to non-creative ways?). I love to create art with technology and showcase technology with art. I love playing guitar and creating music. I enjoy the instant gratification of changing a stylesheet and seeing a webpage change when I hit Command+R.&lt;/p&gt;
+&lt;p&gt;Maybe the guide to what drives me is this simple statement: what brings me joy is also what challenges me. And also: what brings me joy allows me to challenge myself.&lt;/p&gt;
+&lt;p&gt;Was I excited about having the opportunity to manage a photo exhibit at FotoweekDC last year? Yes. Did it turn out exactly the way I planned? No. But I am glad I did it because it was very challenging to manage 12 different photography groups and volunteers for an entire week. I learned a lot about what works and what doesn&amp;rsquo;t work when putting on a large-scale photography exhibition.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Every time I push myself to do something new, I learn new things, meet new people, and gain perspective. This is a positive feedback loop that I use to gain confidence in each new endeavor.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Photography and Developing Your Visual Language&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Bear with me as I try to explain what is very hard to put into words: the experience of taking and viewing a photograph.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Photography is an amalgamation of technology, art, and magic. I am eager to go where it takes me. There is always something strange to see around the next corner. Even that same corner at a different time of day or season can be another planet. Every time my eye finds the viewfinder, that rectangular scene is looking back at me. Sometimes the scene mocks me. Sometimes it beckons me. Sometimes it is laughing in the dust. Becoming better at the craft of photography is building a working relationship with what is through the looking-glass.&lt;/p&gt;
+&lt;p&gt;Our visual intelligence is being trained over time into a new vocabulary made up of colors, shapes, and light. This visual language is pictographic and temporal. A blue square of chipped paint and an organic green pine tree are connected via a gray sky and crooked sidewalk. But tomorrow the chipped paint is fixed, the pine tree is cut, and the sky is now blue. The sidewalk is also fixed. Did the scene change or did the viewer&amp;rsquo;s perspective in time?&lt;/p&gt;
+&lt;p&gt;To go further into the challenges of viewing a photo, sometimes a word destroys an entire photographic experience. I stopped titling my photos because I was framing too much for the viewer. If I titled something &amp;ldquo;Wall on 30th Street&amp;rdquo; you would be prepared for a wall, but maybe without the title you would have interpreted the scene as a very flat puppy? I stopped writing captions for the same reasons. Words ruin photographs. I am a firm believer in training yourself to see over time in your own way and to avoid words at all costs. My favorite photographers are the ones who are taciturn as they go about their craft. This does not necessarily require them to be introverted, but when they are in the mode of taking photographs, they are creating and cultivating a louder silence.&lt;/p&gt;
+&lt;p&gt;As you build up your visual vocabulary, you will recognize in other&amp;rsquo;s photographs attempts to solve similar riddles. Patterns develop overtime as one photographer is influenced by another and you will see how genres of street photos, portrait, and landscape photos evolve. Each decision you make with a photograph does not need explanation. The viewer will either understand or not, or interpret it differently based on their own experiences and own personal vocabularies that they have build up over time according to their place and experience in their own societal bubble.&lt;/p&gt;
+&lt;p&gt;This is one of the best things about our new picture-taking culture. The societal bubbles are popping. The internet allows you to self-select and curate, but it also allows you to discover something new. It is true that we are being over-saturated with millions of images per day. This, to me, sounds like a problem of lack of curation, something that technology may help solve. The positives to this drowning in images is that we are all building up a strong visual intelligence as both observer and creators of images as we sink slowly to the bottom of this sweet abyss.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;So, to get to whether or not to call myself a photographer.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Whew, that was long-winded but I am leaving it as is. Onward:
+I waffle back and forth between stating that I am a photographer in my profiles. The issue here is what it means to be a photographer. Here is how I define it:&lt;/p&gt;
+&lt;p&gt;For me, photography is a need. It is a requirement for happiness. It is searching for visual puzzles to solve. It is pushing the mind to the edges of what reality can be into a super-reality of shapes, colors, light and dark. It is the shocking feeling of the banal. It is the juxtaposition of what we have done to the world and what the world has done to us. It is the opportunity to stop time. It is my passion and my art and it continues to surprise me. I define a successful photograph on my own terms and I am my own harshest critic.&lt;/p&gt;
+&lt;p&gt;My four month old son and my wife bring me so much happiness and have changed me in so many ways I cannot express it in words, but at my core being I still have this need to create things and this will never go away. It is who I am, it is part of my being. It goes beyond ambition, greed, etc. With less free time nowadays, I rely on photography even more to fill this need and I cannot wait to see where this desire takes me next.&lt;/p&gt;
+&lt;p&gt;Thank you for reading and attempting to understand why I call myself a photographer.&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>2013, The Year We Missed</title>
       <link>https://www.jamescampbell.us/posts/2013-year-we-missed/</link>
       <pubDate>Tue, 31 Dec 2013 04:10:00 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/2013-year-we-missed/</guid>
-      <description>In 2013, we looked pretty ridiculous standing around staring at our phones, tablets, phablets, and iPads.
-My goal in this post is to share photos I have curated that document the phenomenon of humans interacting with new technology.
-Since I believe I am a better curator than writer, I will try to keep the words to a minimum.
-New technology is great, but we need to figure out what it means and how it fits into our lives.</description>
+      <description>&lt;p&gt;In 2013, we looked pretty ridiculous standing around staring at our phones, tablets, phablets, and iPads.&lt;/p&gt;
+&lt;p&gt;My goal in this post is to share photos I have curated that document the phenomenon of humans interacting with new technology.&lt;/p&gt;
+&lt;p&gt;Since I believe I am a better curator than writer, I will try to keep the words to a minimum.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://farm8.staticflickr.com/7238/7049846391_fd4cc6cb7c_b_d.jpg&#34; alt=&#34;man on phone&#34;&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8527/8498642548_dc4a26274a_b_d.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;New technology is great, but we need to figure out what it means and how it fits into our lives.&lt;/p&gt;
+&lt;p&gt;Were our lives more meaningful and rich when we were analog?&lt;/p&gt;
+&lt;p&gt;What can we do today to enable meaning in a world that expresses emotion through a like button?&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;The rise of hipster culture is an indication of our collective nostalgia for what we did before the cloud came along that digitized, monetized, and made available everything we want at a moments notice.&lt;/p&gt;
+&lt;p&gt;My wife and I have a rule: &lt;em&gt;no phones out at meals&lt;/em&gt;. It is simple, but it really works. What other rules make sense?&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h3 id=&#34;2014-is-the-year-we-will-start-to-figure-it-out&#34;&gt;2014 is the year we will start to figure it out.&lt;/h3&gt;
+&lt;p&gt;2014 is the year we start finding smart uses for our technology that enable human connection, interaction, and sharing, as opposed to keeping us apart even when we are in the same room.&lt;/p&gt;
+&lt;h2 id=&#34;happy-new-year&#34;&gt;Happy New Year!&lt;/h2&gt;
+</description>
     </item>
     
     <item>
       <title>Why Flickr is My Online Backup Solution</title>
       <link>https://www.jamescampbell.us/posts/why-flickr-backup-solution/</link>
       <pubDate>Mon, 11 Nov 2013 10:10:10 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/why-flickr-backup-solution/</guid>
-      <description>I&amp;rsquo;ve complained about Flickr&amp;rsquo;s new redesign enough. There are some positives about the service that still out-do any other online photo sharing website.
-For example, I am one of the lucky ones who have been grandfathered into Flickr&amp;rsquo;s unlimited photo plan when my Pro plan was renewed earlier this year. This means that for $25 per year I get unlimited photo storage.
-This fact, coupled with the auto-upload feature in the Flickr app for the iPhone means I have everything I need to backup and store all of my photos taken on my iPhone.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve complained about Flickr&amp;rsquo;s new redesign enough. There are some positives about the service that still out-do any other online photo sharing website.&lt;/p&gt;
+&lt;p&gt;For example, I am one of the lucky ones who have been grandfathered into Flickr&amp;rsquo;s unlimited photo plan when my Pro plan was renewed earlier this year. This means that for $25 per year I get &lt;em&gt;unlimited&lt;/em&gt; photo storage.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.jamescampbell.us/img/flickr-backup.png&#34; alt=&#34;screenshot of flickr unlimited available&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This fact, coupled with the auto-upload feature in the Flickr app for the iPhone means I have everything I need to backup and store all of my photos taken on my iPhone.&lt;/p&gt;
+&lt;p&gt;Once I tested this system and used it for the last week, I turned off Photo Stream on my iPhone.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Updated workflow on iPhone is as follows:&lt;/em&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Take a photo.&lt;/li&gt;
+&lt;li&gt;Next time I open the Flickr app, all of my photos are there.&lt;/li&gt;
+&lt;li&gt;All done. I can download again, edit, publish anytime I wish.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The photos are automatically set as private until I decide to publish. That is it. No messing with sending to &lt;a href=&#34;http://www.dropbox.com&#34;&gt;Dropbox&lt;/a&gt;, &lt;a href=&#34;http://www.loom.com&#34;&gt;Loom&lt;/a&gt;, Everpix (now defunct), or trying to rely on the 1000 photo limit of Photo Stream to force me to get to the photos before they disappear into the aether.&lt;/p&gt;
+&lt;p&gt;If you are looking to use something other than Flickr, I recommend &lt;a href=&#34;http://www.loom.com&#34;&gt;Loom&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;From their website:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Loom is a place for all your photos and videos.
+One library, seamlessly organized and accessible from anywhere.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As I said on twitter, Loom is what Apple&amp;rsquo;s &lt;a href=&#34;http://support.apple.com/kb/HT4486&#34;&gt;My Photo Stream&lt;/a&gt; should be.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Like this article? Send me a message on &lt;a href=&#34;https://twitter.com/intent/user?screenname=jamescampbell&#34;&gt;twitter&lt;/a&gt; or &lt;a href=&#34;mailto:james@jamescampbell.us&#34;&gt;email&lt;/a&gt; me, I would love to hear from you.&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>My Daily News Routine in 2013</title>
       <link>https://www.jamescampbell.us/posts/daily-news-routine-2013/</link>
       <pubDate>Mon, 02 Sep 2013 10:10:10 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/daily-news-routine-2013/</guid>
-      <description>It is impossible for anyone to keep up with everything that happens every single day.
-Back in 2008, stuck between Youtube videos, tweets, Flickr contacts, etcetera, I realized this. I decided to filter out what I really needed daily through a tight collection of RSS feeds and email subscriptions. I started with an initial list of 10 to 20 in Google Reader and it grew from there. I will skip the growing pains of this method, but trust me, it was hard to find a happy medium between being overwhelmed with content and feeling informed.</description>
+      <description>&lt;p&gt;It is impossible for anyone to keep up with everything that happens every single day.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.jamescampbell.us/posts/ideas.png&#34; alt=&#34;Ideas&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Back in 2008, stuck between Youtube videos, tweets, Flickr contacts, etcetera, I realized this. I decided to filter out what I really needed daily through a tight collection of RSS feeds and email subscriptions. I started with an initial list of 10 to 20 in Google Reader and it grew from there. I will skip the growing pains of this method, but trust me, it was hard to find a happy medium between being overwhelmed with content and feeling informed.&lt;/p&gt;
+&lt;p&gt;Fast-forward to the present day and I have over 400 RSS feeds residing on my &lt;a href=&#34;http://www.feedafever.com&#34;&gt;Fever&lt;/a&gt; in over 20 different folder categories, the main being &lt;em&gt;photography&lt;/em&gt;, &lt;em&gt;technology&lt;/em&gt;, &lt;em&gt;art and design&lt;/em&gt;, and &lt;em&gt;coding&lt;/em&gt;. I also have one folder labeled &lt;em&gt;awesome&lt;/em&gt; where I have a select few including Seth Godin&amp;rsquo;s blog. I will save the full list of my RSS for another post. The rest of this post will focus on what I read via email every day.&lt;/p&gt;
+&lt;p&gt;My email subscriptions are even more pared down than my RSS. Here is my daily reading schedule (when the emails hit my inbox):&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6am&lt;/strong&gt;- &lt;a href=&#34;http://thebrief.io/&#34;&gt;The Brief&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The Brief is &amp;ldquo;Today in technology, updated once a day&amp;rdquo; that includes great headlines on what the tech press will be talking about throughout the day.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;630am&lt;/strong&gt; - &lt;a href=&#34;http://www.news.me&#34;&gt;News.me&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;News.me is &amp;ldquo;a small team based out of betaworks in New York City. We build applications that improve the way people find and talk about the news.&amp;rdquo; Their headlines never cross with what The Brief posts, which I like.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7am&lt;/strong&gt; - &lt;a href=&#34;http://www.vimeo.com&#34;&gt;Vimeo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vimeo is where I find great artists posting videos about their works. The daily email is only new content from contacts I am following on Vimeo (similar to Flickr&amp;rsquo;s &amp;lsquo;latest from your contacts&amp;rsquo;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8am&lt;/strong&gt; - &lt;a href=&#34;http://www.newser.com&#34;&gt;Newser&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Newser is a news aggregator website. I would skip the site completely and just sign-up for their &lt;a href=&#34;http://www.newser.com/subscriptions.aspx&#34;&gt;email newsletter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;830am&lt;/strong&gt; - &lt;a href=&#34;http://www.digg.com&#34;&gt;Daily Digg&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Digg has done a great pivot into a news-discovery tool from its root as a social news aggregation site. From the site: &amp;ldquo;Digg delivers the most interesting and talked about stories on the Internet right now. The Internet is full of great stories, and Digg helps you find, read, and share the very best ones.&amp;rdquo; Sign up for the Daily Digg by scrolling all the way to the bottom of the main page.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;12pm&lt;/strong&gt; - &lt;a href=&#34;http://www.swayy.co&#34;&gt;SWAYY&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Swayy is yet another service trying to intelligently recommend content to you based on the content you follow on other social media sites. From the site: &amp;ldquo;Swayy brings you the best content to easily share with your audience and followers, based on their interests and engagement.&amp;rdquo; &lt;a href=&#34;http://www.twitter.com/getswayy&#34;&gt;@getswayy&lt;/a&gt; on twitter&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4pm&lt;/strong&gt; - &lt;a href=&#34;http://www.nextdraft.com&#34;&gt;NextDraft&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;From the site: &amp;ldquo;The day&amp;rsquo;s most fascinating news.&amp;rdquo; Also:
+&amp;ldquo;Dave Pell is a first class picker, packer and shipper of the nuggets you need to know. NextDraft will make you love email again.&amp;rdquo; by Michael Sippey, Twitter&lt;/p&gt;
+&lt;p&gt;NextDraft also has an iPhone app that you can download.&lt;/p&gt;
+&lt;p&gt;So there you have it. This is what I read every day at a minimum, even when I don&amp;rsquo;t have time for my RSS feeds, I can always open my mail app and read these highlights from the day&amp;rsquo;s news.&lt;/p&gt;
+&lt;p&gt;How do you keep up? Send me a message on &lt;!-- raw HTML omitted --&gt;twitter&lt;!-- raw HTML omitted --&gt; or [email][2] me.
+[2]: mailto:james@jamescampbell.us?subject=Hello &amp;ldquo;Email me&amp;rdquo;&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>A List of Google Alternatives</title>
       <link>https://www.jamescampbell.us/posts/a-list-google-alternatives/</link>
       <pubDate>Mon, 08 Jul 2013 10:10:10 -0500</pubDate>
-      
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/a-list-google-alternatives/</guid>
-      <description>I used to love Google services and their policy of &amp;ldquo;don&amp;rsquo;t be evil.&amp;rdquo; The anagram solver tells me that the phrase turns into the word &amp;lsquo;violented.&amp;rsquo; Well I definitely feel whatever that means.
-I was a huge fan of Google Reader and Google Analytics. I even setup and managed google analytic accounts for websites that I created for clients. Not today.
-I do understand it is probably cliche in the ever-growing hipster-tech community to be anti-google but I really don&amp;rsquo;t want to have my digital life attached to a single service where I am the product, which is also the reason I have a largely vacant Facebook account.</description>
+      <description>&lt;p&gt;I used to love Google services and their policy of &amp;ldquo;don&amp;rsquo;t be evil.&amp;rdquo; The anagram solver tells me that the phrase turns into the word &amp;lsquo;violented.&amp;rsquo; Well I definitely feel whatever that means.&lt;/p&gt;
+&lt;p&gt;I was a huge fan of Google Reader and Google Analytics. I even setup and managed google analytic accounts for websites that I created for clients. Not today.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;I do understand it is probably cliche in the ever-growing hipster-tech community to be anti-google but I really don&amp;rsquo;t want to have my digital life attached to a single service where I am the product, which is also the reason I have a largely vacant Facebook account.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Here is what I have found out there to replace google (I am not getting paid to endorse any of these services, I just love them because they work the same or better than Google&amp;rsquo;s version):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Google Reader &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; &lt;a href=&#34;https://tt-rss.org/&#34; title=&#34;Nice, easy install and lightweight rss feed manager and reader&#34;&gt;TT-RSS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Google Feedburner &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; &lt;a href=&#34;http://feedpress.it&#34; title=&#34;Highly customizable, mine is running at feed.jamescampbell.us/jamescampbell&#34;&gt;FeedPress&lt;/a&gt; (formerly URI.LV)&lt;/li&gt;
+&lt;li&gt;Google Gmail &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; &lt;a href=&#34;https://mailinabox.email&#34; title=&#34;Yes, you can run your own email server.&#34;&gt;Mail in a Box&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Google Drive &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; &lt;a href=&#34;https://nextcloud.com/install&#34; title=&#34;your data your way, bonus points is it comes with Mail in a Box&#34;&gt;NextCloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Google Docs &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; &lt;a href=&#34;http://www.fengoffice.com/web/professional_vs_community.php&#34; title=&#34;Google docs and calendar and notes&#34;&gt;FengOffice&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Google Analytics &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; &lt;a href=&#34;https://github.com/allinurl/goaccess&#34; title=&#34;Nice linux terminal interface in case you dont have web access&#34;&gt;GoAccess&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;You run TT-RSS, NextCloud, and FengOffice on your own server with your own domain. For instance, I have my tt-rss installation at &lt;a href=&#34;https://jr.jamescampbell.us/tt-rss&#34;&gt;jr.jamescampbell.us/tt-rss&lt;/a&gt;. If you need help setting this up, send me a message via one of my contact methods below.&lt;/em&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>The Goal</title>
       <link>https://www.jamescampbell.us/posts/the-goal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 01 Jul 2012 21:19:10 -0500</pubDate>
+      <author>james@jamescampbell.us (James Campbell)</author>
       <guid>https://www.jamescampbell.us/posts/the-goal/</guid>
-      <description>The goal should be do create things that make you happy.
-Destroy and otherwise ignore the things that don&amp;rsquo;t.
-Never stop noticing the small things.
-Never be too busy to be able to talk to a stranger about nothing.</description>
+      <description>&lt;p&gt;The goal should be do create things that make you happy.&lt;/p&gt;
+&lt;p&gt;Destroy and otherwise ignore the things that don&amp;rsquo;t.&lt;/p&gt;
+&lt;p&gt;Never stop noticing the small things.&lt;/p&gt;
+&lt;p&gt;Never be too busy to be able to talk to a stranger about nothing.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://www.jamescampbell.us/about/</link>
+      <pubDate>Mon, 13 Feb 2012 13:42:49 -0500</pubDate>
+      <author>james@jamescampbell.us (James Campbell)</author>
+      <guid>https://www.jamescampbell.us/about/</guid>
+      <description>&lt;p&gt;I am a husband, father, and technologist living near Washington DC.&lt;/p&gt;
+&lt;p&gt;I enjoy working on projects that merge art &amp;amp; code as well as making and listening to music.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s create the world we want.&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;Current PGP fingerprint for secure communications&lt;/del&gt; PGP is dead, long live PGP&lt;/p&gt;
+&lt;p&gt;The best way to follow along on my journey are the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Github as &lt;a href=&#34;https://github.com/jamesacampbell&#34;&gt;jamesacampbell&lt;/a&gt;, which links to my twitter and other locations as well&lt;/li&gt;
+&lt;li&gt;Stackoverflow as &lt;!-- raw HTML omitted --&gt;jamescampbell&lt;!-- raw HTML omitted --&gt; (top 2% as of 2022).&lt;/li&gt;
+&lt;li&gt;GoldForLions which is my band on &lt;a href=&#34;https://open.spotify.com/artist/4WnFnyJZWqwKMA5EfmYklZ?si=MWceRVNeT2GoliQ312JnEw&#34;&gt;Spotify&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.twitter.com/jc50000000&#34;&gt;&lt;figure&gt;&lt;img src=&#34;https://www.jamescampbell.us/fontawesome/twitter.svg&#34;/&gt;
+&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

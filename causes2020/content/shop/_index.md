@@ -1,6 +1,7 @@
 ---
 title: "Shop"
 url: "/shop"
+rss_ignore: true
 ---
 
 ---

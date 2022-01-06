@@ -1,6 +1,6 @@
 ---
 title: "The Goal"
-date: 2012-07-01T18:53:17-04:00-05:00
+date: 2012-07-01T21:19:10-05:00
 showDate: true
 draft: false
 tags: ["writing", "thoughts", "advice"]

@@ -1,5 +1,5 @@
 ---
-title: "Why I Use Pyenv and Pipenv for All Python Projects"
+title: "Use Pyenv and Pipenv"
 date: 2020-11-15T10:10:10-05:00
 showDate: true
 tags: ["pyenv", "tips", "python", "pipenv"]

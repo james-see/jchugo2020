@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="James Campbell website pushing buttons since 1981.">
+<title>
+    Weather Forecast with Axios &amp; VueJS - Causes &amp; Effects
+</title>
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.6d10ea1ed2e66d431267324e2126b185c40ae2a7adb70d109ce81ce22729f1c3.css" integrity="sha256-bRDqHtLmbUMSZzJOISaxhcQK4qettw0QnOgc4icp8cM=" crossorigin="anonymous" media="screen">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.jamescampbell.us/posts/weatherus.jpeg"/>
+
+<meta name="twitter:title" content="Weather Forecast with Axios &amp; VueJS"/>
+<meta name="twitter:description" content="I am learning that my computer-focused work is seasonal. As summer 2021 slid into fall 2021 I noticed my Github commits for my own projects go up and up. I am ok with this seasonal shift. I wonder that if I lived in a tropical location, would I pick a different vocation or just work from a hut on the beach all day?
+Side projects and new ideas in general excite me."/>
+
+<meta property="og:title" content="Weather Forecast with Axios &amp; VueJS" />
+<meta property="og:description" content="I am learning that my computer-focused work is seasonal. As summer 2021 slid into fall 2021 I noticed my Github commits for my own projects go up and up. I am ok with this seasonal shift. I wonder that if I lived in a tropical location, would I pick a different vocation or just work from a hut on the beach all day?
+Side projects and new ideas in general excite me." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.jamescampbell.us/posts/getting-the-forecast/" /><meta property="og:image" content="https://www.jamescampbell.us/posts/weatherus.jpeg" /><meta property="og:image" content="https://www.jamescampbell.us/posts/weathermvp.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-05T17:19:10-05:05" />
+<meta property="article:modified_time" content="2022-01-05T17:19:10-05:05" /><meta property="og:site_name" content="Causes &amp; Effects" />
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1S64X1L3QD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1S64X1L3QD');
+</script>
+    
+
+    
+    
+    
+    <title>
+        
+        Weather Forecast with Axios &amp; VueJS
+        
+    </title>
+</head>
+
+<body>
+    
+    
+    <header class="wrap flex-container">
+        <h1>Weather Forecast with Axios &amp; VueJS</h1>
+    </header>
+    
+    <main class="wrap">
+        
+<div class="flex-container">
+    <aside role="complementary">
+        Jan 05, 2022 &#183; 827 words
+        <div class="tag-container">
+            
+            
+            <span class="tag">
+                <a href="/tags/side-projects/">
+                    side-projects
+                </a>
+            </span>
+            
+            
+            
+            <span class="tag">
+                <a href="/tags/vuejs/">
+                    vuejs
+                </a>
+            </span>
+            
+            
+            
+            <span class="tag">
+                <a href="/tags/axios/">
+                    axios
+                </a>
+            </span>
+            
+            
+            
+            <span class="tag">
+                <a href="/tags/coding/">
+                    coding
+                </a>
+            </span>
+            
+            
+        </div>
+    </aside>
+    <hr />
+    <article role="article">
+        <p><img src="/posts/weatherus.jpeg" alt="weather"></p>
+<p>I am learning that my computer-focused work is seasonal. As summer 2021 slid into fall 2021 I noticed my Github commits for my own projects go up and up. I am ok with this seasonal shift. I wonder that if I lived in a tropical location, would I pick a different vocation or just work from a hut on the beach all day?</p>
+<p>Side projects and new ideas in general excite me. Moving as fast as possible from idea to a running application tickles the parts of me that seek creation, instant gratification, and control.</p>
+<p>Most side projects I leave unfinished or turn them into command line tools like the <a href="https://github.com/jamesacampbell/ufwvisitorcounter" title="parses and returns file of the top visitors from ufw logs to your server">ufw (uncomplicated firewall) visitor log parser</a>. That tool serves the purpose to track visitors that happen upon your web server without all the bloat of Google Analytics or other third parties snooping or selling your data.</p>
+<p>Other projects make it to full completion as landing pages or web tools. The web weather app I just completed is one of those. Still others end up as forget-me-nots for my future self in the form of gists on github. In fact, this application itself came about after I rediscovered a <a href="https://gist.github.com/jamesacampbell/6fd177f252cd09c28a3b023d34c3a0a0" title="vue js forget me not gist">vue.js forget-me-not gist</a> I had created 3 years(!) ago.</p>
+<h3 id="requirements-gathering">Requirements Gathering</h3>
+<p>Here is what I had as the initial requirements in my head of what I wanted to do:</p>
+<ol>
+<li>Find public free APIs for weather forecast data by zipcode</li>
+<li>Get the data as json and display it on a web page</li>
+<li>Allow users to input their zipcode</li>
+<li>Not have to load a separate page for results</li>
+<li>Not have to store or transile / compile javascript via node or anything to get it to run</li>
+<li>Make it truly a Single Page Application (SPA)</li>
+</ol>
+<p>I was able to hit all of those requirements and more, which ended up making it mobile-first display and other niceties like free hosting on github. Total code time was probably less than 8 hours, including deploying to github and spending time tweaking the css color palette and pixel pushing to ensure centered content and visibility on mobile. It is live at <a href="https://www.jamescampbell.us/getweatherbyzipcode" title="get forecasted weather by zipcode">getweatherbyzipcode</a></p>
+<p><img src="/posts/weathermvp.png" alt=""></p>
+<h3 id="search-for-free-apis">Search for FREE APIs</h3>
+<p>These needed to be free without an account or auth code at all. Free endpoints to just access without limits. I ended up finding <a href="https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/" title="free list of apis">this</a> article that showed one api for weather that needed latitude and longitude and another api that allowed you to get latitude and longitude based on zipcode. So I married the two together and turned it into chained callbacks in axios to first get the latitude &amp; longitude, and then passing those into the url of the second <code>axios.get</code> to return the actual weather data to the user.</p>
+<h3 id="rendering-on-mobile">Rendering on Mobile</h3>
+<p>A single line of meta tag in bare html fixes most problems displaying on mobile:</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag" title="mozilla mobile meta tags">Mozilla</a> explains this succintly if you want to read about this and other modifications.</p>
+<h3 id="why-vuejs">Why VueJS</h3>
+<p>The neat thing about VueJS is its ability to stay out of the way. I was able to use a single <code>index.html</code> loading VueJS from the unpkg CDN because I could just use the Vue code as needed sprinkled in as custom variables as a simple <code>&lt;script&gt;let app = new App()</code> setup that is created at page render time on the client while still maintaining very fast page load times. No transpiling needed. No Node bs. No package.json needed. This is pure magic to me in terms of lightning fast implementation speed vs. scaffolding and dev-ops background bog-downing of brain matter that takes away from shipping product.</p>
+<h3 id="why-axios">Why Axios</h3>
+<p>Axios is my default for async grabbing of content from elsewhere to get it to the page. I am sure there are better implementations now with ES6 / Typescript that are built-in with promises and await and async out of the box. As I have learned over the 20+ years of doing code work, <em>better</em> is subjective and dependant heavily on goal-setting &amp; priorities. I move faster with what I already know or can remember from a few Stackoverflow checks.</p>
+<h3 id="improvements">Improvements</h3>
+<p>Post MVP, I identify the following improvements I may make:</p>
+<ol>
+<li>Moving the JS files (Axios &amp; Vue) to be local and static vs. loading them from the unpkg CDN</li>
+<li>Switching to native Typescript / ES6 to do the get requests instead of Axios (<a href="https://medium.com/dont-leave-me-out-in-the-code/handling-javascript-promises-with-async-await-or-then-ceebc235933d" title="why use async/await vs. axios">here</a> is a good post explaining why and how)</li>
+<li>Exposing more of the forecast data like wind speed and others</li>
+<li>Adding a sparkline style line graph using D3 or similar to show the temperature change for the next 72 hours visually</li>
+</ol>
+<h3 id="extras">Extras</h3>
+<h4 id="_source-code_"><em>Source code</em></h4>
+<p>Source code is <a href="https://github.com/jamesacampbell/getweatherbyzipcode" title="source code">public on my Github</a> where you can see it really is a single index.html file.</p>
+<h4 id="_sharability_"><em>Sharability</em></h4>
+<p>I implemented twitter card for the application, which required a square image and some twitter related metadata. Twitter explains this well and even has a <a href="https://cards-dev.twitter.com/validator" title="twitter card validator">card tester tool</a>.</p>
+<h4 id="_favicon_"><em>Favicon</em></h4>
+<p>I made custom favicons that even render properly on mobile bookmarking sites etc. using <a href="https://realfavicongenerator.net/" title="favicon generator">realfavicongenerator.net</a>.</p>
+
+    </article>
+</div>
+
+
+        
+<nav role="navigation" class="flex-container bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/posts">posts</a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/shop">shop</a>
+        
+            &#183; 
+            <a href="/portfolio">portfolio</a>
+        
+            &#183; 
+            <a href="/about">who is james?</a>
+        
+            &#183; 
+            <a href="/index.xml">rss</a>
+        
+    
+    &#183; 
+    <a href="/">
+        main
+    </a>
+
+</p>
+</nav>
+
+    </main>
+    
+    <footer class="flex-container footer">All rights reserved © 2012-2022
+</footer>
+    
+    
+</body>
+
+</html>
